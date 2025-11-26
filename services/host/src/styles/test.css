@@ -1,0 +1,6 @@
+/* Простой тест без Tailwind */
+.test-red {
+  background-color: red !important;
+  color: white !important;
+  padding: 1rem !important;
+}

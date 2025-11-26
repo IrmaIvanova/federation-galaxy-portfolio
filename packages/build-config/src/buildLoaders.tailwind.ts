@@ -2,9 +2,8 @@ import { ModuleOptions } from 'webpack'
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import { BuildOptions } from './types/types';
 import ReactRefreshTypeScript from 'react-refresh-typescript';
-import { buildBabelLoader } from './babel/buildBabelLoader';
 
-export function buildLoaders(options: BuildOptions): ModuleOptions['rules'] {
+export function buildLoadersWithTailwind(options: BuildOptions): ModuleOptions['rules'] {
     const isDev = options.mode === 'development';
 
     const assetsLoader = {
@@ -13,82 +12,58 @@ export function buildLoaders(options: BuildOptions): ModuleOptions['rules'] {
         generator: {
             filename: 'assets/[hash][ext][query]'
         }
-    }
+    };
 
     const svgLoader = {
         test: /\.svg$/i,
         issuer: /\.[jt]sx?$/,
         use: [{
-            loader: '@svgr/webpack', options: {
+            loader: '@svgr/webpack', 
+            options: {
                 icon: true,
                 svgoConfig: {
                     plugins: [
                         {
                             name: 'convertColors',
-                            params: {
-                                currentColor: true
-                            }
+                            params: { currentColor: true }
                         }
                     ]
                 }
             }
         }],
-    }
+    };
 
-    const cssLoader = {
-        loader: "css-loader",
-        options: {
-            modules: {
-                localIdentName: isDev ? '[path][name]__[local]' : '[hash:base64:8]'
-
-            },
-        }
-    }
-    const cssOnlyLoader = {
-        test: /\.css$/i,
-        use: [
-            isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
-            "css-loader",
-            {
-                loader: "postcss-loader",
-                options: {
-                    postcssOptions: {
-                        plugins: [
-                            require("tailwindcss"),
-                            require("autoprefixer"),
-                        ],
-                    },
-                },
-            },
-        ],
-    }
-
+    // PostCSS loader для Tailwind v3
     const postcssLoader = {
         loader: "postcss-loader",
         options: {
             postcssOptions: {
                 plugins: [
-                    require("tailwindcss"),
-                    require("autoprefixer"),
+                    ["tailwindcss"],
+                    ["autoprefixer"]
                 ],
             },
         },
-    }
-    const scssLoader = {
-        test: /\.s[ac]ss$/i,
+    };
+
+    const cssLoader = {
+        test: /\.css$/i,
         use: [
-            // Creates `style` nodes from JS strings
             isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
-            // Translates CSS into CommonJS
-            cssLoader,
-            // add postcssLoader for tailwindcss and autoprefixer 
+            'css-loader',
             postcssLoader,
-            // Compiles Sass to CSS
-            "sass-loader",
         ],
     };
 
-    // Чтобы Tailwind работал не только со SCSS, но и с обычным CSS — добавим отдельное правило:
+    const scssLoader = {
+        test: /\.s[ac]ss$/i,
+        use: [
+            isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
+            'css-loader',
+            postcssLoader,
+            'sass-loader',
+        ],
+    };
 
     const tsLoader = {
         exclude: /node_modules/,
@@ -104,15 +79,13 @@ export function buildLoaders(options: BuildOptions): ModuleOptions['rules'] {
                 }
             }
         ]
-    }
+    };
 
-    // const babelLoader = buildBabelLoader(options)
     return [
         assetsLoader,
         svgLoader,
-        cssOnlyLoader,
+        cssLoader,
         scssLoader,
         tsLoader,
-        // babelLoader
-    ]
+    ];
 }

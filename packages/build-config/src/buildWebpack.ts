@@ -4,6 +4,7 @@ import { buildLoaders } from "./buildLoaders";
 import { buildPlugins } from "./buildPlugins";
 import { buildResolvers } from "./buildResolvers";
 import { BuildOptions } from "./types/types";
+import { buildLoadersWithTailwind } from "./buildLoaders.tailwind";
 
 export function buildWebpack(options: BuildOptions): webpack.Configuration {
     const { mode, paths } = options
@@ -19,7 +20,7 @@ export function buildWebpack(options: BuildOptions): webpack.Configuration {
         },
         plugins: buildPlugins(options),
         module: {
-            rules: buildLoaders(options),
+            rules: buildLoadersWithTailwind(options),
         },
         resolve: buildResolvers(options),
         devtool: isDev ? 'eval-cheap-module-source-map' : 'source-map',
