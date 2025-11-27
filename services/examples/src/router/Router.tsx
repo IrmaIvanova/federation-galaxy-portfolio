@@ -2,7 +2,7 @@ import { App } from "@/components/App";
 import { Shop } from "@/pages/shop";
 import { Suspense } from "react";
 import { createBrowserRouter } from "react-router-dom";
-import { UserCard } from '@packages/shared/src/components/UserCard'
+
 const routes = [
     {
         path: '/code-examples',
@@ -20,7 +20,7 @@ const routes = [
                 element: <Suspense fallback={"Loading..."}>
                     <div>
                         <h1> Kukaracha</h1>
-                        <UserCard userName={"FrogShop"} />
+                       
                     </div>
                 </Suspense>,
 
