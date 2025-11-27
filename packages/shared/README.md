@@ -87,7 +87,7 @@ shared/
 │   ├── components/
 │   │   ├── icons/      # Компоненты иконок
 │   │   ├── layout/     # Компоненты layout (Container, Section, Grid)
-│   │   └── ui/         # UI компоненты (Button, Card, Input)
+│   │   └── ui/         # UI компоненты (Button, Card, ThemeToogle)
 │   ├── hooks/      # Кастомные React хуки
 │   ├── providers/  # Провайдеры контекста (ThemeProvider)
 │   ├── routes/     # Конфигурации маршрутов
