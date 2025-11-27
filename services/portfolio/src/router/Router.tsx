@@ -2,11 +2,15 @@ import { App } from "@/components/App";
 import { LazyAbout } from "@/pages/about/About.lazy";
 import { Suspense } from "react";
 import { createBrowserRouter } from "react-router-dom";
+import { ThemeProvider } from '@packages/shared/src';
 
 const routes = [
     {
         path: "/portfolio",
-        element: <App />,
+        element: <ThemeProvider defaultTheme="system" storageKey="my-app-theme">
+            <App />
+
+        </ThemeProvider>,
         children: [
 
             {

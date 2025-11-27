@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 
-
+import '../styles/tailwind.css'
 
 export const App: React.FC = () => {
 
