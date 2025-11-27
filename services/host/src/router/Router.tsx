@@ -19,7 +19,7 @@ export const router = createBrowserRouter([
             ...codeExamplesRoutes,
             ...portfolioRoutes,
             {
-                path: "/storybook",
+                path: "/customStoryBook",
                 element: <PreviewPage />,
             }
         ]

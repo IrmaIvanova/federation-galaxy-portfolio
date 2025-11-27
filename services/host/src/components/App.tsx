@@ -101,7 +101,7 @@ export const App: React.FC = () => {
           CODE EXAMPLES
         </Link>
         <Link
-          to={"/storybook"}
+          to={"/customStoryBook"}
           className="text-blue-600 hover:text-blue-800 font-medium underline decoration-2 underline-offset-4 transition-colors"
         >
           Design System Preview 
