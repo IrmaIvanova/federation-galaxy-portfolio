@@ -100,25 +100,16 @@ export const App: React.FC = () => {
         >
           CODE EXAMPLES
         </Link>
+        <Link
+          to={"/storybook"}
+          className="text-blue-600 hover:text-blue-800 font-medium underline decoration-2 underline-offset-4 transition-colors"
+        >
+          Design System Preview 
+        </Link>
       </div>
 
       <Outlet />
-      {/* // Более сложный пример с GridItem */}
-      <Grid cols={1} md={3} lg={4} gap="lg">
-        <GridItem span={1} md={2} lg={3}>
-          <div>Широкий элемент</div>
-        </GridItem>
-        <GridItem span={1} md={1} lg={1}>
-          <div>Узкий элемент</div>
-        </GridItem>
-      </Grid>
-
-      {/* // Как список */}
-      <Grid as="ul" cols={1} sm={2} md={3} gap="sm">
-        <GridItem as="li">Пункт 1</GridItem>
-        <GridItem as="li">Пункт 2</GridItem>
-        <GridItem as="li">Пункт 3</GridItem>
-      </Grid>
+ 
 
 
     </Section >

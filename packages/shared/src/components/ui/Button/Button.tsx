@@ -11,14 +11,17 @@ export const Button: React.FC<ButtonProps> = ({
   variant = 'primary',
   size = 'md',
   className,
+  disabled,
   children,
   ...props
 }) => {
   const baseClasses = 'btn';
+
   const variantClasses = {
     primary: 'btn-primary',
     secondary: 'btn-secondary',
     outline: 'btn-outline',
+   
   };
   const sizeClasses = {
     sm: 'px-3 py-1.5 text-xs',
@@ -26,14 +29,19 @@ export const Button: React.FC<ButtonProps> = ({
     lg: 'px-6 py-3 text-base',
   };
 
+  
+  const disabledClasses = ' dark:bg-dark-accent hover:none disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none';
+
   return (
     <button
       className={cn(
         baseClasses,
         variantClasses[variant],
         sizeClasses[size],
+        disabledClasses,
         className
       )}
+       disabled={disabled}
       {...props}
     >
       {children}
