@@ -8,7 +8,7 @@ import { useTheme } from "../../../providers/ThemeProvider";
 import { ThemeToggle } from "../ThemeToogle/ThemeToogle";
 import { CodeBlock } from '../CodeBlock';
 import { CodePreview } from '../CodePreview';
-
+import { TabsPreview } from '../Tabs/TabsPreview'
 export const PreviewPage: React.FC = () => {
     const { theme } = useTheme();
 
@@ -41,9 +41,9 @@ export const PreviewPage: React.FC = () => {
                     </p>
                 </div>
             </Section>
-
- <CodePreview
-    code={`  
+            <TabsPreview />
+            <CodePreview
+                code={`  
                     <div className="space-y-6">
                         <div>
                             <h3 className="text-lg font-semibold text-copy mb-3">Variants</h3>
@@ -75,9 +75,7 @@ export const PreviewPage: React.FC = () => {
                         </div>
                     </div>
                 `}
-    preview={
-     
-   
+                preview={
                     <div className="space-y-6">
                         <div>
                             <h3 className="text-lg font-semibold text-copy mb-3">Variants</h3>
@@ -108,11 +106,11 @@ export const PreviewPage: React.FC = () => {
 
                         </div>
                     </div>
-                
-     
-    }
-    language="tsx"
-  />
+
+
+                }
+                language="tsx"
+            />
 
             {/* Buttons Section */}
             <Section className="mb-12">
