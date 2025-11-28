@@ -1,6 +1,7 @@
 import { Tabs, TabsContentOptionProps, TabsOptionProps } from '../Tabs';
 import { CodeBlock } from '../CodeBlock';
 import React, { Children } from 'react';
+import { CodePreview } from '../CodePreview';
 
 
 const codeTabs = `import { Tabs } from '../Tabs';
@@ -43,7 +44,6 @@ export const TabsPreview: React.FC<TabsPreviewProps> = ({ }) => {
 }`
 
 
-export interface TabsPreviewProps { }
 
 const tabsOptions: TabsOptionProps[] = [
     { value: 'preview', label: 'Preview' },
@@ -99,16 +99,12 @@ const tabsPreviewContentOptions: TabsContentOptionProps[] = [
 ]
 
 
-export const TabsPreview: React.FC<TabsPreviewProps> = ({ }) => {
-    return <section className="mb-12">
-        <h2 className="text-2xl font-bold text-copy mb-6">Tabs</h2>
-
-        <Tabs
+export const TabsPreview: React.FC = () => {
+    return (
+        <CodePreview
+            title={"Вкладки"}
             defaultValue="preview"
             options={tabsOptions}
-            contentOptions={tabsPreviewContentOptions}
-        >
-
-        </Tabs>
-    </section>
+            contentOptions={tabsPreviewContentOptions} />
+    )
 }

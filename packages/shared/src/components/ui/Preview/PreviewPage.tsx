@@ -6,9 +6,9 @@ import { Section } from "../../Layout/Section";
 import { Grid, GridItem } from "../../Layout/Grid";
 import { useTheme } from "../../../providers/ThemeProvider";
 import { ThemeToggle } from "../ThemeToogle/ThemeToogle";
-import { CodeBlock } from '../CodeBlock';
-import { CodePreview } from '../CodePreview';
+
 import { TabsPreview } from '../Tabs/TabsPreview'
+import { TypographyPreview } from "../Typography";
 export const PreviewPage: React.FC = () => {
     const { theme } = useTheme();
 
@@ -42,75 +42,9 @@ export const PreviewPage: React.FC = () => {
                 </div>
             </Section>
             <TabsPreview />
-            <CodePreview
-                code={`  
-                    <div className="space-y-6">
-                        <div>
-                            <h3 className="text-lg font-semibold text-copy mb-3">Variants</h3>
-                            <div className="flex gap-3 flex-wrap">
-                                <Button variant="primary">Primary</Button>
-                                <Button variant="secondary">Secondary</Button>
-                                <Button variant="outline">Outline</Button>
-                            </div>
-                        </div>
-
-                        <div>
-                            <h3 className="text-lg font-semibold text-copy mb-3">Sizes</h3>
-                            <div className="flex gap-3 flex-wrap items-center">
-                                <Button size="sm">Small</Button>
-                                <Button size="md">Medium</Button>
-                                <Button size="lg">Large</Button>
-                            </div>
-                        </div>
-
-                        <div>
-                            <h3 className="text-lg font-semibold text-copy mb-3">States</h3>
-                            <div className="flex gap-3 flex-wrap">
-                                <Button disabled>Disabled</Button>
-                                <Button variant="primary" disabled>Disabled Primary</Button>
-                            </div>
-                        </div>
-                        <div>
-
-                        </div>
-                    </div>
-                `}
-                preview={
-                    <div className="space-y-6">
-                        <div>
-                            <h3 className="text-lg font-semibold text-copy mb-3">Variants</h3>
-                            <div className="flex gap-3 flex-wrap">
-                                <Button variant="primary">Primary</Button>
-                                <Button variant="secondary">Secondary</Button>
-                                <Button variant="outline">Outline</Button>
-                            </div>
-                        </div>
-
-                        <div>
-                            <h3 className="text-lg font-semibold text-copy mb-3">Sizes</h3>
-                            <div className="flex gap-3 flex-wrap items-center">
-                                <Button size="sm">Small</Button>
-                                <Button size="md">Medium</Button>
-                                <Button size="lg">Large</Button>
-                            </div>
-                        </div>
-
-                        <div>
-                            <h3 className="text-lg font-semibold text-copy mb-3">States</h3>
-                            <div className="flex gap-3 flex-wrap">
-                                <Button disabled>Disabled</Button>
-                                <Button variant="primary" disabled>Disabled Primary</Button>
-                            </div>
-                        </div>
-                        <div>
-
-                        </div>
-                    </div>
-
-
-                }
-                language="tsx"
-            />
+           
+            <TypographyPreview />
+  
 
             {/* Buttons Section */}
             <Section className="mb-12">
