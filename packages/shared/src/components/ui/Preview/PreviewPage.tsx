@@ -6,12 +6,18 @@ import { Section } from "../../Layout/Section";
 import { Grid, GridItem } from "../../Layout/Grid";
 import { useTheme } from "../../../providers/ThemeProvider";
 import { ThemeToggle } from "../ThemeToogle/ThemeToogle";
+import { CodeBlock } from '../CodeBlock';
+import { CodePreview } from '../CodePreview';
 
 export const PreviewPage: React.FC = () => {
     const { theme } = useTheme();
 
     return (
         <Container size="xl" padding="lg">
+
+
+
+
             {/* Header */}
             <Section background="muted" className="rounded-lg mb-8">
                 <div className="text-center">
@@ -35,6 +41,78 @@ export const PreviewPage: React.FC = () => {
                     </p>
                 </div>
             </Section>
+
+ <CodePreview
+    code={`  
+                    <div className="space-y-6">
+                        <div>
+                            <h3 className="text-lg font-semibold text-copy mb-3">Variants</h3>
+                            <div className="flex gap-3 flex-wrap">
+                                <Button variant="primary">Primary</Button>
+                                <Button variant="secondary">Secondary</Button>
+                                <Button variant="outline">Outline</Button>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 className="text-lg font-semibold text-copy mb-3">Sizes</h3>
+                            <div className="flex gap-3 flex-wrap items-center">
+                                <Button size="sm">Small</Button>
+                                <Button size="md">Medium</Button>
+                                <Button size="lg">Large</Button>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 className="text-lg font-semibold text-copy mb-3">States</h3>
+                            <div className="flex gap-3 flex-wrap">
+                                <Button disabled>Disabled</Button>
+                                <Button variant="primary" disabled>Disabled Primary</Button>
+                            </div>
+                        </div>
+                        <div>
+
+                        </div>
+                    </div>
+                `}
+    preview={
+     
+   
+                    <div className="space-y-6">
+                        <div>
+                            <h3 className="text-lg font-semibold text-copy mb-3">Variants</h3>
+                            <div className="flex gap-3 flex-wrap">
+                                <Button variant="primary">Primary</Button>
+                                <Button variant="secondary">Secondary</Button>
+                                <Button variant="outline">Outline</Button>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 className="text-lg font-semibold text-copy mb-3">Sizes</h3>
+                            <div className="flex gap-3 flex-wrap items-center">
+                                <Button size="sm">Small</Button>
+                                <Button size="md">Medium</Button>
+                                <Button size="lg">Large</Button>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 className="text-lg font-semibold text-copy mb-3">States</h3>
+                            <div className="flex gap-3 flex-wrap">
+                                <Button disabled>Disabled</Button>
+                                <Button variant="primary" disabled>Disabled Primary</Button>
+                            </div>
+                        </div>
+                        <div>
+
+                        </div>
+                    </div>
+                
+     
+    }
+    language="tsx"
+  />
 
             {/* Buttons Section */}
             <Section className="mb-12">
@@ -67,8 +145,8 @@ export const PreviewPage: React.FC = () => {
                             </div>
                         </div>
                         <div>
- 
-</div>
+
+                        </div>
                     </div>
                 </Card>
             </Section>
@@ -135,7 +213,7 @@ export const PreviewPage: React.FC = () => {
                     <div>
                         <h3 className="text-lg font-semibold text-copy mb-4">Section Backgrounds</h3>
                         <Section background="primary" padding="md" className="rounded-lg mb-4">
-                            <p className="text-center text-copy">Primary Background Section</p>
+                            <p className="text-accent text-center text-copy dark text-accent">Primary Background Section</p>
                         </Section>
                         <Section background="muted" padding="md" className="rounded-lg">
                             <p className="text-center text-copy">Muted Background Section</p>
@@ -146,7 +224,7 @@ export const PreviewPage: React.FC = () => {
                     <div>
                         <h3 className="text-lg font-semibold text-copy mb-4">Grid System</h3>
                         <Grid cols={1} md={2} lg={3} gap="md">
-                        {/* <Grid cols={2} md={4} gap="md"> */}
+                            {/* <Grid cols={2} md={4} gap="md"> */}
                             {[1, 2, 3, 4].map(num => (
                                 <GridItem key={num}>
                                     <div className="bg-card p-4 rounded text-center">

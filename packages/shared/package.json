@@ -3,18 +3,17 @@
   "version": "1.0.0",
   "main": "./src/index.js",
   "dependencies": {
+    "@types/prismjs": "^1.26.5",
     "clsx": "^2.1.1",
-
- 
+    "prismjs": "^1.30.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-refresh-typescript": "^2.0.11",
     "react-router-dom": "^6.16.0"
-  
   },
   "devDependencies": {
-       "@types/react": "^18.2.25",
-    "@types/react-dom": "^18.2.11"
+    "@types/react": "^18.2.25",
+    "@types/react-dom": "^18.2.11",
+    "prism-themes": "^1.9.0"
   }
-
 }

@@ -2,11 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Подключаем наши кастомные темы */
+@import "./code-themes.css";
+@import "./tailwind-components.css";
+
 @layer base {
   html {
     font-family: 'Inter', system-ui, sans-serif;
   }
-  
+
   /* Светлая тема по умолчанию */
   :root {
     --color-accent: #A6FF00;
@@ -34,11 +38,11 @@
   h1 {
     @apply text-4xl font-bold text-light-copy;
   }
-  
+
   h2 {
     @apply text-3xl font-semibold text-light-copy;
   }
-  
+
   h3 {
     @apply text-2xl font-semibold text-light-copy;
   }
@@ -48,100 +52,6 @@
   .dark h3 {
     @apply text-dark-copy;
   }
-  
+
 }
 
-@layer components {
-  /* Кнопки для светлой темы */
-  .btn {
-    @apply inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors duration-200;
-  }
-  
-  .btn-primary {
-    @apply btn bg-light-accent text-light-copy hover:bg-light-accent-500 focus:ring-light-accent;
-  }
-  
-  .btn-secondary {
-    @apply btn bg-light-gray text-light-copy hover:bg-light-gray-500 focus:ring-light-gray;
-  }
-  
-  .btn-outline {
-    @apply btn border border-light-gray-300 bg-light-background text-light-copy hover:bg-light-background-muted focus:ring-light-accent;
-  }
-
-  /* Кнопки для темной темы */
-  .dark .btn-primary {
-    @apply bg-dark-accent text-dark-copy hover:bg-dark-accent-500 focus:ring-dark-accent;
-  }
-  
-  .dark .btn-secondary {
-    @apply bg-dark-gray text-dark-copy hover:bg-dark-gray-500 focus:ring-dark-gray;
-  }
-  
-  .dark .btn-outline {
-    @apply border border-dark-gray-700 bg-dark-background text-dark-copy hover:bg-dark-background-muted focus:ring-dark-accent;
-  }
-  
-  /* Карточки */
-  .card {
-    @apply bg-light-background-card rounded-lg shadow-soft border border-light-gray-200;
-  }
-
-  .dark .card {
-    @apply bg-dark-background-card shadow-soft-dark border border-dark-gray-800;
-  }
-  
-  /* Инпуты */
-  .input {
-    @apply block w-full px-3 py-2 border border-light-gray-300 rounded-md shadow-sm placeholder-light-copy-subtle focus:outline-none focus:ring-light-accent focus:border-light-accent bg-light-background text-light-copy;
-  }
-
-  .dark .input {
-    @apply border-dark-gray-700 placeholder-dark-copy-subtle focus:ring-dark-accent focus:border-dark-accent bg-dark-background text-dark-copy;
-  }
-}
-
-@layer utilities {
-  /* Градиенты */
-  .bg-gradient-accent {
-    @apply bg-gradient-to-r from-light-accent to-light-accent-500;
-  }
-  
-  .dark .bg-gradient-accent {
-    @apply bg-gradient-to-r from-dark-accent to-dark-accent-500;
-  }
-
-  /* Текст */
-  .text-accent {
-    @apply text-light-accent;
-  }
-  
-  .dark .text-accent {
-    @apply text-dark-accent;
-  }
-
-  .text-muted {
-    @apply text-light-copy-muted;
-  }
-  
-  .dark .text-muted {
-    @apply text-dark-copy-muted;
-  }
-
-  /* Фоны */
-  .bg-muted {
-    @apply bg-light-background-muted;
-  }
-  
-  .dark .bg-muted {
-    @apply bg-dark-background-muted;
-  }
-
-  .bg-card {
-    @apply bg-light-background-card;
-  }
-  
-  .dark .bg-card {
-    @apply bg-dark-background-card;
-  }
-}

@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  /* Кнопки для светлой темы */
+  .btn {
+    @apply inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors duration-200;
+  }
+  
+  .btn-primary {
+    @apply btn bg-light-accent text-light-copy hover:bg-light-accent-500 focus:ring-light-accent;
+  }
+  
+  .btn-secondary {
+    @apply btn bg-light-gray text-light-copy hover:bg-light-gray-500 focus:ring-light-gray;
+  }
+  
+  .btn-outline {
+    @apply btn border border-light-gray-300 bg-light-background text-light-copy hover:bg-light-background-muted focus:ring-light-accent;
+  }
+
+  /* Кнопки для темной темы */
+  .dark .btn-primary {
+    @apply bg-dark-accent text-dark-copy hover:bg-dark-accent-500 focus:ring-dark-accent;
+  }
+  
+  .dark .btn-secondary {
+    @apply bg-dark-gray text-dark-copy hover:bg-dark-gray-500 focus:ring-dark-gray;
+  }
+  
+  .dark .btn-outline {
+    @apply border border-dark-gray-700 bg-dark-background text-dark-copy hover:bg-dark-background-muted focus:ring-dark-accent;
+  }
+  
+  /* Карточки */
+  .card {
+    @apply bg-light-background-card rounded-lg shadow-soft border border-light-gray-200;
+  }
+
+  .dark .card {
+    @apply bg-dark-background-card shadow-soft-dark border border-dark-gray-800;
+  }
+  
+  /* Инпуты */
+  .input {
+    @apply block w-full px-3 py-2 border border-light-gray-300 rounded-md shadow-sm placeholder-light-copy-subtle focus:outline-none focus:ring-light-accent focus:border-light-accent bg-light-background text-light-copy;
+  }
+
+  .dark .input {
+    @apply border-dark-gray-700 placeholder-dark-copy-subtle focus:ring-dark-accent focus:border-dark-accent bg-dark-background text-dark-copy;
+  }
+}

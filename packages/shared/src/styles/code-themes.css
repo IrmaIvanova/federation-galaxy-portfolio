@@ -1,0 +1,73 @@
+/* Light theme - под твою светлую тему */
+.prism-theme-light code[class*="language-"],
+.prism-theme-light pre[class*="language-"] {
+  background: theme('colors.light.background.card');
+  color: theme('colors.light.copy');
+  border: 1px solid theme('colors.light.gray.200');
+}
+
+/* Dark theme - под твою тёмную тему */
+.prism-theme-dark code[class*="language-"],
+.prism-theme-dark pre[class*="language-"] {
+  background: theme('colors.dark.background.card');
+  color: theme('colors.dark.copy');
+  border: 1px solid theme('colors.dark.gray.700');
+}
+
+/* Общие стили для обеих тем */
+.prism-theme-light pre[class*="language-"],
+.prism-theme-dark pre[class*="language-"] {
+  font-family: 'Fira Code', 'Fira Mono', Menlo, Consolas, monospace;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  line-height: 1.5;
+  tab-size: 2;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin: 0;
+}
+
+/* Цвета токенов для светлой темы */
+.prism-theme-light .token.comment {
+  color: #6B7280;
+}
+
+.prism-theme-light .token.keyword {
+  color: #DC2626; /* red-600 */
+}
+
+.prism-theme-light .token.string {
+  color: #059669; /* green-600 */
+}
+
+.prism-theme-light .token.function {
+  color: #2563EB; /* blue-600 */
+}
+
+.prism-theme-light .token.class-name {
+  color: #7C3AED; /* purple-600 */
+}
+
+/* Цвета токенов для темной темы */
+.prism-theme-dark .token.comment {
+  color: #9CA3AF;
+}
+
+.prism-theme-dark .token.keyword {
+  color: #F87171; /* red-400 */
+}
+
+.prism-theme-dark .token.string {
+  color: #34D399; /* green-400 */
+}
+
+.prism-theme-dark .token.function {
+  color: #60A5FA; /* blue-400 */
+}
+
+.prism-theme-dark .token.class-name {
+  color: #A78BFA; /* purple-400 */
+}

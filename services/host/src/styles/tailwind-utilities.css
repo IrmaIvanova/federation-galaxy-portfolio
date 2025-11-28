@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+
+  /* Градиенты */
+  .bg-gradient-accent {
+    @apply bg-gradient-to-r from-light-accent to-light-accent-500;
+  }
+
+  .dark .bg-gradient-accent {
+    @apply bg-gradient-to-r from-dark-accent to-dark-accent-500;
+  }
+
+  /* Текст */
+  .text-accent {
+    @apply text-light-accent;
+  }
+
+  .dark .text-accent {
+    @apply text-dark-accent;
+  }
+
+  .text-muted {
+    @apply text-light-copy-muted;
+  }
+
+  .dark .text-muted {
+    @apply text-dark-copy-muted;
+  }
+
+  /* Фоны */
+  .bg-muted {
+    @apply bg-light-background-muted;
+  }
+
+  .dark .bg-muted {
+    @apply bg-dark-background-muted;
+  }
+
+  .bg-card {
+    @apply bg-light-background-card;
+  }
+
+  .dark .bg-card {
+    @apply bg-dark-background-card;
+  }
+}
