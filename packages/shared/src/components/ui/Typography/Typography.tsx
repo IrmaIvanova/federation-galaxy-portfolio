@@ -23,7 +23,8 @@ export const Typography: React.FC<TypographyProps> = ({
         h3: 'text-2xl font-semibold text-copy mb-2',
         h4: 'text-xl font-semibold text-copy mb-2',
         p: 'text-base text-copy mb-3 leading-relaxed',
-        small: 'text-sm text-muted'
+        small: 'text-sm text-muted',
+        
 
     };
 

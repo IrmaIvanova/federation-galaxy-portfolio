@@ -30,7 +30,7 @@ export const Button: React.FC<ButtonProps> = ({
   };
 
   
-  const disabledClasses = ' dark:bg-dark-accent hover:none disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none';
+  const disabledClasses = disabled? 'dark:bg-dark-accent hover:none disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none':"";
 
   return (
     <button

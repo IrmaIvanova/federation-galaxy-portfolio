@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import classes from './App.module.scss'
 import { Link, Outlet } from 'react-router-dom';
-import { Section, Grid, Card, Button } from '@packages/shared/src'
+import { Section, Grid, Card, Button, Typography } from '@packages/shared/src'
 
 const About: React.FC = () => {
 
     return (
         <Section>
-            <h1>ABOUT</h1>
+            <Typography variant='h1'>About</Typography>
+            
             <Grid cols={1} md={2} lg={3} gap="md" className="mb-8">
 
                 {/* Тест ховер-эффектов */}

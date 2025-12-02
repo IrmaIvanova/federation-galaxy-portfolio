@@ -92,7 +92,7 @@ export const App: React.FC = () => {
           to={portfolioRoutes.about}
           className="text-blue-600 hover:text-blue-800 font-medium underline decoration-2 underline-offset-4 transition-colors"
         >
-          ABOUT
+          Portfolio
         </Link>
         <Link
           to={codeExamplesRoutes.main}
