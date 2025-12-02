@@ -92,7 +92,10 @@ module.exports = {
         }
       },
       fontFamily: {
-        sans: ['Inter', ...defaultTheme.fontFamily.sans],
+        // sans: ['"Science Gothic"', ...defaultTheme.fontFamily.sans],
+        'science': ['"Science Gothic"', 'sans-serif'],
+        'rubik-burned': ['"Rubik Burned"', 'display'],
+        'sans': ['Inter', 'system-ui', 'sans-serif'], // оставляем как fallback
       },
       borderRadius: {
         '4xl': '2rem',

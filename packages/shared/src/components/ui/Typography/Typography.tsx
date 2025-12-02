@@ -18,7 +18,7 @@ export const Typography: React.FC<TypographyProps> = ({
 
 
     const variantClasses = {
-        h1: 'text-4xl font-bold text-copy mb-4',
+        h1: 'text-4xl font-bold text-copy mb-4 font-rubik-burned',
         h2: 'text-3xl font-semibold text-copy mb-3',
         h3: 'text-2xl font-semibold text-copy mb-2',
         h4: 'text-xl font-semibold text-copy mb-2',

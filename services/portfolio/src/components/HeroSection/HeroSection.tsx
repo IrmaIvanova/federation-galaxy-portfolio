@@ -35,20 +35,20 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <Container size="lg">
                 <div className="max-w-3xl mx-auto text-center">
                     {/* Subtitle */}
-                    <Typography className="text-lg text-muted mb-4 leading-relaxed">
+                    <Typography className="text-lg text-muted mb-4 leading-relaxed ">
                         {subtitle}
                     </Typography>
 
                     {/* Main Title */}
                     <Typography
                         variant="h1"
-                        className="text-accent mb-6 text-copy"
+                        className="text-accent mb-6 text-copy "
                     >
                         {title}
                     </Typography>
 
                     {/* Description */}
-                    <Typography  className="mb-10 text-muted text-lg">
+                    <Typography  className="mb-10 text-muted text-lg ">
                         {description}
                     </Typography>
 
