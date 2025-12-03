@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { portfolioRoutes } from '@packages/shared/src/routes/portfolio'
 import { codeExamplesRoutes } from '@packages/shared/src/routes/code-examples'
 import '../styles/tailwind.css';
@@ -13,7 +13,8 @@ import {
   Grid,
   GridItem,
   Section,
-  useTheme
+  useTheme,
+  CustomLink,
 } from '@packages/shared/src'
 
 
@@ -82,34 +83,39 @@ export const App: React.FC = () => {
 
         </Container>
 
-  
+
 
       </Grid>
 
       {/* Навигация */}
       <div className="flex gap-6 justify-center mb-8">
-        <Link
+        <CustomLink
           to={portfolioRoutes.about}
-          className="text-blue-600 hover:text-blue-800 font-medium underline decoration-2 underline-offset-4 transition-colors"
-        >
+          variant='primary'>
+
           Portfolio
-        </Link>
-        <Link
+        </CustomLink>
+        <CustomLink
+          variant='primary'
           to={codeExamplesRoutes.main}
-          className="text-blue-600 hover:text-blue-800 font-medium underline decoration-2 underline-offset-4 transition-colors"
         >
           CODE EXAMPLES
-        </Link>
-        <Link
-          to={"/customStoryBook"}
-          className="text-blue-600 hover:text-blue-800 font-medium underline decoration-2 underline-offset-4 transition-colors"
-        >
-          Design System Preview 
-        </Link>
+        </CustomLink>
+        <CustomLink
+          variant='primary'
+          to={"/customStoryBook"} >
+          Design System Preview
+        </CustomLink>
+        <CustomLink
+          variant='primary'
+          to={"https://github.com/IrmaIvanova/federation-galaxy-portfolio"}
+          external>
+          GitHub
+        </CustomLink>
       </div>
 
       <Outlet />
- 
+
 
 
     </Section >

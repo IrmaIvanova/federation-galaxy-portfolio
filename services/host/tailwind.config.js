@@ -91,6 +91,9 @@ module.exports = {
           }
         }
       },
+      margin: {
+        '4px': '4px',
+      },
       fontFamily: {
         // sans: ['"Science Gothic"', ...defaultTheme.fontFamily.sans],
         'science': ['"Science Gothic"', 'sans-serif'],

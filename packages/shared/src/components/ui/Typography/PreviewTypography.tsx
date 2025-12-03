@@ -5,10 +5,10 @@ import { Typography } from './Typography';
 import { CodePreview } from '../CodePreview';
 
 
-const codeTabs = `import { Tabs } from '../Tabs';
+const codeTabs = `
 import React from 'react';
 
-import { Typography } from '@packages/shared';
+import { Typography } from '@packages/shared/src';
 
 const Example = () => (
   <div>

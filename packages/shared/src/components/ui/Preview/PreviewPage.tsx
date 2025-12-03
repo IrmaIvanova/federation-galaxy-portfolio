@@ -9,13 +9,12 @@ import { ThemeToggle } from "../ThemeToogle/ThemeToogle";
 
 import { TabsPreview } from '../Tabs/TabsPreview'
 import { TypographyPreview } from "../Typography";
+import { CustomLinkPreview } from "../CustomLink/PreviewCustomLink";
 export const PreviewPage: React.FC = () => {
     const { theme } = useTheme();
 
     return (
         <Container size="xl" padding="lg">
-
-
 
 
             {/* Header */}
@@ -42,9 +41,11 @@ export const PreviewPage: React.FC = () => {
                 </div>
             </Section>
             <TabsPreview />
-           
+
             <TypographyPreview />
-  
+
+            <CustomLinkPreview />
+
 
             {/* Buttons Section */}
             <Section className="mb-12">
