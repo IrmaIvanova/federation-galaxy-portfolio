@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "../Button";
+import { Button, ButtonPreview } from "../Button";
 import { Card } from "../Card";
 import { Container } from "../../Layout/Container";
 import { Section } from "../../Layout/Section";
@@ -48,41 +48,7 @@ export const PreviewPage: React.FC = () => {
 
 
             {/* Buttons Section */}
-            <Section className="mb-12">
-                <h2 className="text-2xl font-bold text-copy mb-6">Buttons</h2>
-                <Card padding="lg">
-                    <div className="space-y-6">
-                        <div>
-                            <h3 className="text-lg font-semibold text-copy mb-3">Variants</h3>
-                            <div className="flex gap-3 flex-wrap">
-                                <Button variant="primary">Primary</Button>
-                                <Button variant="secondary">Secondary</Button>
-                                <Button variant="outline">Outline</Button>
-                            </div>
-                        </div>
-
-                        <div>
-                            <h3 className="text-lg font-semibold text-copy mb-3">Sizes</h3>
-                            <div className="flex gap-3 flex-wrap items-center">
-                                <Button size="sm">Small</Button>
-                                <Button size="md">Medium</Button>
-                                <Button size="lg">Large</Button>
-                            </div>
-                        </div>
-
-                        <div>
-                            <h3 className="text-lg font-semibold text-copy mb-3">States</h3>
-                            <div className="flex gap-3 flex-wrap">
-                                <Button disabled>Disabled</Button>
-                                <Button variant="primary" disabled>Disabled Primary</Button>
-                            </div>
-                        </div>
-                        <div>
-
-                        </div>
-                    </div>
-                </Card>
-            </Section>
+            <ButtonPreview />
 
             {/* Cards Section */}
             <Section className="mb-12">
