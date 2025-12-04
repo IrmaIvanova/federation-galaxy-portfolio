@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, ButtonPreview } from "../Button";
-import { Card } from "../Card";
+import { Card, CardPreview } from "../Card";
 import { Container } from "../../Layout/Container";
 import { Section } from "../../Layout/Section";
 import { Grid, GridItem } from "../../Layout/Grid";
@@ -8,8 +8,9 @@ import { useTheme } from "../../../providers/ThemeProvider";
 import { ThemeToggle } from "../ThemeToogle/ThemeToogle";
 
 import { TabsPreview } from '../Tabs/TabsPreview'
-import { TypographyPreview } from "../Typography";
+import { Typography, TypographyPreview } from "../Typography";
 import { CustomLinkPreview } from "../CustomLink/PreviewCustomLink";
+import { SectionPreview } from "../../Layout/Section/SectionPreview";
 export const PreviewPage: React.FC = () => {
     const { theme } = useTheme();
 
@@ -40,10 +41,14 @@ export const PreviewPage: React.FC = () => {
                     </p>
                 </div>
             </Section>
+            {/* Tabs Section */}
+
             <TabsPreview />
 
+            {/* Typography Section */}
             <TypographyPreview />
 
+            {/* CustomLink Section */}
             <CustomLinkPreview />
 
 
@@ -51,88 +56,34 @@ export const PreviewPage: React.FC = () => {
             <ButtonPreview />
 
             {/* Cards Section */}
-            <Section className="mb-12">
-                <h2 className="text-2xl font-bold text-copy mb-6">Cards</h2>
-                <Grid cols={1} md={2} lg={3} gap="lg">
-                    <GridItem span={3}>
-                        <Card padding="sm">
-                            <h4 className="font-semibold text-copy mb-2">Small Padding</h4>
-                            <p className="text-muted text-sm">Карточка с маленькими отступами</p>
-                        </Card>
-                    </GridItem>
-
-                    <GridItem>
-                        <Card padding="md">
-                            <h4 className="font-semibold text-copy mb-2">Medium Padding</h4>
-                            <p className="text-muted text-sm">Стандартная карточка с средними отступами</p>
-                        </Card>
-                    </GridItem>
-
-                    <GridItem>
-                        <Card padding="lg">
-                            <h4 className="font-semibold text-copy mb-2">Large Padding</h4>
-                            <p className="text-muted text-sm">Карточка с большими отступами для важного контента</p>
-                        </Card>
-                    </GridItem>
-                </Grid>
-
-            </Section>
-            <Section className="mb-12">
-                <h2 className="text-2xl font-bold text-copy mb-6">Cards</h2>
-                <Grid cols={1} md={2} lg={3} gap="md" className="mb-8">
-                    <Container>
-                        <Card padding="sm">
-                            <h4 className="font-semibold text-copy mb-2">Small Padding</h4>
-                            <p className="text-muted text-sm">Карточка с маленькими отступами</p>
-                        </Card>
-                    </Container>
-
-                    <Container>
-                        <Card padding="md">
-                            <h4 className="font-semibold text-copy mb-2">Medium Padding</h4>
-                            <p className="text-muted text-sm">Стандартная карточка с средними отступами</p>
-                        </Card>
-                    </Container>
-
-                    <Container>
-                        <Card padding="lg">
-                            <h4 className="font-semibold text-copy mb-2">Large Padding</h4>
-                            <p className="text-muted text-sm">Карточка с большими отступами для важного контента</p>
-                        </Card>
-                    </Container>
-                </Grid>
-            </Section>
+            <CardPreview />
 
             {/* Layout Components */}
             <Section className="mb-12">
-                <h2 className="text-2xl font-bold text-copy mb-6">Layout Components</h2>
+                <Typography variant="h2">Layout Components</Typography>
+            </Section>
 
-                <div className="space-y-8">
-                    {/* Section Backgrounds */}
-                    <div>
-                        <h3 className="text-lg font-semibold text-copy mb-4">Section Backgrounds</h3>
-                        <Section background="primary" padding="md" className="rounded-lg mb-4">
-                            <p className="text-accent text-center text-copy dark text-accent">Primary Background Section</p>
-                        </Section>
-                        <Section background="muted" padding="md" className="rounded-lg">
-                            <p className="text-center text-copy">Muted Background Section</p>
-                        </Section>
-                    </div>
+            {/* Section System */}
 
-                    {/* Grid System */}
-                    <div>
-                        <h3 className="text-lg font-semibold text-copy mb-4">Grid System</h3>
-                        <Grid cols={1} md={2} lg={3} gap="md">
-                            {/* <Grid cols={2} md={4} gap="md"> */}
-                            {[1, 2, 3, 4].map(num => (
-                                <GridItem key={num}>
-                                    <div className="bg-card p-4 rounded text-center">
-                                        <span className="text-accent font-semibold">Item {num}</span>
-                                    </div>
-                                </GridItem>
-                            ))}
-                        </Grid>
-                    </div>
+            <SectionPreview />
+
+
+
+            {/* Grid System */}
+            <Section className="mb-12">
+
+                <div>
+                    <Typography>Grid System</Typography>
+                    <Grid cols={1} md={2} lg={3} gap="md">
+                        {/* <Grid cols={2} md={4} gap="md"> */}
+                        {[1, 2, 3, 4].map(num => (
+                            <GridItem key={num}>
+                                <div className="bg-card p-4 rounded text-center">
+                                    <span className="text-accent font-semibold">Item {num}</span>
+                                </div>
+                            </GridItem>
+                        ))}
+                    </Grid>
                 </div>
             </Section>
 

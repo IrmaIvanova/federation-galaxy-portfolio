@@ -121,7 +121,7 @@ const tabsPreviewContentOptions: TabsContentOptionProps[] = [
 export const ButtonPreview: React.FC = () => {
     return (
         <CodePreview
-            title={"Заголовки"}
+            title={"Кнопки"}
             defaultValue="preview"
             options={tabsOptions}
             contentOptions={tabsPreviewContentOptions} />

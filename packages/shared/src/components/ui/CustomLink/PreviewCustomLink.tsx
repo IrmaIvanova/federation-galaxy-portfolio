@@ -99,7 +99,7 @@ const tabsPreviewContentOptions: TabsContentOptionProps[] = [
 export const CustomLinkPreview: React.FC = () => {
     return (
         <CodePreview
-            title={"Заголовки"}
+            title={"Ссылки"}
             defaultValue="preview"
             options={tabsOptions}
             contentOptions={tabsPreviewContentOptions} />
