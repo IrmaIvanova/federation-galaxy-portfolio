@@ -11,6 +11,7 @@ import { TabsPreview } from '../Tabs/TabsPreview'
 import { Typography, TypographyPreview } from "../Typography";
 import { CustomLinkPreview } from "../CustomLink/PreviewCustomLink";
 import { SectionPreview } from "../../Layout/Section/SectionPreview";
+import { GridPreview } from "../../Layout/Grid/GridPreview";
 export const PreviewPage: React.FC = () => {
     const { theme } = useTheme();
 
@@ -70,22 +71,7 @@ export const PreviewPage: React.FC = () => {
 
 
             {/* Grid System */}
-            <Section className="mb-12">
-
-                <div>
-                    <Typography>Grid System</Typography>
-                    <Grid cols={1} md={2} lg={3} gap="md">
-                        {/* <Grid cols={2} md={4} gap="md"> */}
-                        {[1, 2, 3, 4].map(num => (
-                            <GridItem key={num}>
-                                <div className="bg-card p-4 rounded text-center">
-                                    <span className="text-accent font-semibold">Item {num}</span>
-                                </div>
-                            </GridItem>
-                        ))}
-                    </Grid>
-                </div>
-            </Section>
+            <GridPreview />
 
             {/* Colors Demo */}
             <Section className="mb-12">

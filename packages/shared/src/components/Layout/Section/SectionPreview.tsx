@@ -1,9 +1,8 @@
 import React, { Children } from 'react';
-import { CodeBlock } from '../../ui';
 import { sectionPropsDocs } from './docs';
-
+import {CodeBlock} from '../../ui/CodeBlock/CodeBlock'
 import { Section } from './Section';
-import { CodePreview, TabsContentOptionProps, TabsOptionProps } from '../../ui';
+import {  CodePreview, TabsContentOptionProps, TabsOptionProps } from '../../ui';
 
 
 export const codeSection = `import React from 'react';
@@ -67,8 +66,8 @@ const tabsPreviewContentOptions: TabsContentOptionProps[] = [
     },
     {
         value: 'code',
+        // children:<div> хахаха</div>
         children: <CodeBlock
-
             code={codeSection}
             language="tsx"
         />
