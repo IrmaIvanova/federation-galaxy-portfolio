@@ -12,6 +12,7 @@ import { Typography, TypographyPreview } from "../Typography";
 import { CustomLinkPreview } from "../CustomLink/PreviewCustomLink";
 import { SectionPreview } from "../../Layout/Section/SectionPreview";
 import { GridPreview } from "../../Layout/Grid/GridPreview";
+import { ColorSystemDemo } from "./index";
 export const PreviewPage: React.FC = () => {
     const { theme } = useTheme();
 
@@ -74,36 +75,7 @@ export const PreviewPage: React.FC = () => {
             <GridPreview />
 
             {/* Colors Demo */}
-            <Section className="mb-12">
-                <h2 className="text-2xl font-bold text-copy mb-6">Color System</h2>
-                <Grid cols={2} md={4} gap="md">
-                    <GridItem>
-                        <div className="bg-light-accent dark:bg-dark-accent p-6 rounded-lg text-center">
-                            <p className="font-semibold">Accent</p>
-                            <p className="text-sm opacity-80">#A6FF00 / #FFA200</p>
-                        </div>
-                    </GridItem>
-                    <GridItem>
-                        <div className="bg-light-gray-400 dark:bg-dark-gray-400 p-6 rounded-lg text-center">
-                            <p className="font-semibold">Gray</p>
-                            <p className="text-sm opacity-80">#C2C2C2 / #8B0D98</p>
-                        </div>
-                    </GridItem>
-                    <GridItem>
-                        <div className="bg-light-background dark:bg-dark-background border border-light-gray-200 dark:border-dark-gray-700 p-6 rounded-lg text-center">
-                            <p className="font-semibold">Background</p>
-                            <p className="text-sm opacity-80">#FFFFFF / #111111</p>
-                        </div>
-                    </GridItem>
-                    <GridItem>
-                        <div className="bg-gradient-accent p-6 rounded-lg text-center">
-                            <p className="font-semibold">Gradient</p>
-                            <p className="text-sm opacity-80">Accent Gradient</p>
-                        </div>
-                    </GridItem>
-                </Grid>
-            </Section>
-
+            <ColorSystemDemo />
 
         </Container>
     );

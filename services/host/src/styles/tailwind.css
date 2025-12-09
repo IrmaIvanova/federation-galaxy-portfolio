@@ -55,8 +55,38 @@
 
 }
 
-
 @layer components {
+
+  /* Градиент для светлой темы */
+  .bg-gradient-accent-light {
+    background: linear-gradient(135deg,
+        theme('colors.light.accent.DEFAULT') 0%,
+        theme('colors.light.accent.900') 100%);
+  }
+
+  /* Градиент для темной темы */
+  .bg-gradient-accent-dark {
+    background: linear-gradient(135deg,
+        theme('colors.dark.accent.DEFAULT') 0%,
+        theme('colors.dark.accent.900') 100%);
+  }
+
+  /* Класс который меняется в зависимости от темы */
+  .bg-gradient-accent {
+    @apply bg-gradient-accent-light;
+  }
+
+  .dark .bg-gradient-accent {
+    @apply bg-gradient-accent-dark;
+  }
+
+  .btn-no-focus:focus {
+    outline: none;
+    box-shadow: none;
+    --tw-ring-offset-shadow: none;
+    --tw-ring-shadow: none;
+    --tw-shadow: none;
+  }
 
   /* Кнопки для светлой темы */
   .btn {
@@ -64,15 +94,22 @@
   }
 
   .btn-primary {
-    @apply btn bg-light-accent text-light-copy hover:bg-light-accent-500 focus:ring-light-accent;
+    @apply btn bg-light-accent text-light-copy hover:bg-light-accent-500 btn-no-focus;
   }
 
   .btn-secondary {
-    @apply btn bg-light-gray text-light-copy hover:bg-light-gray-500 focus:ring-light-gray;
+    @apply btn bg-light-gray text-light-copy hover:bg-light-gray-500 btn-no-focus;
   }
 
   .btn-outline {
-    @apply btn border border-light-gray-300 bg-light-background text-light-copy hover:bg-light-background-muted focus:ring-light-accent;
+    @apply btn border border-light-gray-300 bg-light-background text-light-copy hover:bg-light-background-muted btn-no-focus;
+  }
+
+  .btn-opt {
+    @apply flex items-center justify-center rounded-full bg-zinc-400/30 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-200 hover:scale-110 hover:bg-zinc-500/30 active:scale-95 btn-no-focus;
+  }
+  .btn-unstyled {
+    @apply ml-2 px-3 py-1 bg-light-background-muted dark:bg-dark-background-muted rounded-full text-sm hover:scale-105 transition-transform btn-no-focus;
   }
 
 
@@ -80,15 +117,20 @@
 
   /* Кнопки для темной темы */
   .dark .btn-primary {
-    @apply bg-dark-accent text-dark-copy hover:bg-dark-accent-500 focus:ring-dark-accent;
+    @apply bg-dark-accent text-dark-copy hover:bg-dark-accent-500 btn-no-focus;
   }
 
   .dark .btn-secondary {
-    @apply bg-dark-gray text-dark-copy hover:bg-dark-gray-500 focus:ring-dark-gray;
+    @apply bg-dark-gray text-dark-copy hover:bg-dark-gray-500 btn-no-focus;
   }
 
   .dark .btn-outline {
-    @apply border border-dark-gray-700 bg-dark-background text-dark-copy hover:bg-dark-background-muted focus:ring-dark-accent;
+    @apply border border-dark-gray-700 bg-dark-background text-dark-copy hover:bg-dark-background-muted btn-no-focus;
+  }
+
+  /* option button */
+  .dark .btn-opt {
+    @apply bg-zinc-400/30 btn-no-focus hover:bg-zinc-500/30;
   }
 
   /* Карточки */
@@ -119,15 +161,15 @@
   .link-default {
     @apply text-light-copy hover:text-light-accent decoration-light-gray-300 hover:decoration-light-accent;
   }
-  
+
   .link-primary {
     @apply text-light-accent hover:text-light-accent-700 decoration-light-accent/50 hover:decoration-light-accent;
   }
-  
+
   .link-secondary {
     @apply text-light-gray-600 hover:text-light-gray-800 decoration-light-gray-400 hover:decoration-light-gray-600;
   }
-  
+
   .link-muted {
     @apply text-light-copy-muted hover:text-light-copy decoration-light-gray-300 hover:decoration-light-gray-500;
   }
@@ -136,15 +178,15 @@
   .dark .link-default {
     @apply text-dark-copy hover:text-dark-accent decoration-dark-gray-700 hover:decoration-dark-accent;
   }
-  
+
   .dark .link-primary {
     @apply text-dark-accent hover:text-dark-accent-300 decoration-dark-accent/50 hover:decoration-dark-accent;
   }
-  
+
   .dark .link-secondary {
     @apply text-dark-gray-400 hover:text-dark-gray-200 decoration-dark-gray-600 hover:decoration-dark-gray-400;
   }
-  
+
   .dark .link-muted {
     @apply text-dark-copy-muted hover:text-dark-copy decoration-dark-gray-700 hover:decoration-dark-gray-500;
   }
@@ -158,13 +200,50 @@
   .link-sm {
     @apply text-sm;
   }
-  
+
   .link-md {
     @apply text-base;
   }
-  
+
   .link-lg {
     @apply text-lg;
   }
 }
 
+
+@layer utilities {
+
+  /* Текст */
+  .text-accent {
+    @apply text-light-accent;
+  }
+
+  .dark .text-accent {
+    @apply text-dark-accent;
+  }
+
+  .text-muted {
+    @apply text-light-copy-muted;
+  }
+
+  .dark .text-muted {
+    @apply text-dark-copy-muted;
+  }
+
+  /* Фоны */
+  .bg-muted {
+    @apply bg-light-background-muted;
+  }
+
+  .dark .bg-muted {
+    @apply bg-dark-background-muted;
+  }
+
+  .bg-card {
+    @apply bg-light-background-card;
+  }
+
+  .dark .bg-card {
+    @apply bg-dark-background-card;
+  }
+}

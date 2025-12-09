@@ -3,7 +3,7 @@ import { cn } from '../../../utils/cn';
 
 export interface TypographyProps {
     children: React.ReactNode;
-    variant?: 'h1' | 'h2' | 'h3' | 'h4' | 'p' | 'small';
+    variant?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'small';
     className?: string;
 
 }
@@ -22,9 +22,11 @@ export const Typography: React.FC<TypographyProps> = ({
         h2: 'text-3xl font-semibold text-copy mb-3',
         h3: 'text-2xl font-semibold text-copy mb-2',
         h4: 'text-xl font-semibold text-copy mb-2',
+        h5: 'font-semibold text-lg mb-1',
+        h6: 'text-sm opacity-80 mb-2',
         p: 'text-base text-copy mb-3 leading-relaxed',
         small: 'text-sm text-muted',
-        
+
 
     };
 
