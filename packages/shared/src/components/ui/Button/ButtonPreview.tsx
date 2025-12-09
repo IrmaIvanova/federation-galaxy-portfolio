@@ -4,21 +4,56 @@ import { Button } from './Button';
 import React, { Children } from 'react';
 import { CodePreview } from '../CodePreview';
 import { buttonPropsDocs } from './docs';
+import { Typography } from '../Typography';
+import { Card } from '../Card';
 
 
 const codeTabs = `import React from 'react';
 
-import { Button } from '@packages/shared/src';
+import { Button, Card, Typography } from '@packages/shared/src';
 
 const Example = () => (
     <div className="space-y-6">
         <div>
             <h3 className="text-lg font-semibold text-copy mb-3">Variants</h3>
-            <div className="flex gap-3 flex-wrap">
+            {/* родительский div */}
+            <div className="flex gap-3 flex-wrap group">
                 <Button variant="primary">Primary</Button>
                 <Button variant="secondary">Secondary</Button>
                 <Button variant="outline">Outline</Button>
+                <Button variant="unstyled">Unstyled</Button>
+
+                {/* вариант options  */}
+                <div className="relative">
+                    <div className="absolute -top-6 left-0 text-xs text-muted opacity-30 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                        Показывается при hover
+                    </div>
+                    <div className="group-hover:opacity-100 opacity-10 transition-opacity duration-300">
+                        <Button variant="options">Options</Button>
+                    </div>
+                </div>
+
             </div>
+        </div>
+        {/* пример кнопки в связке с карточкой */}
+        <div>
+            <h4 className="font-medium mb-2">* Вариант "options" (требует group):</h4>
+                <Card className="group relative">
+                    <Typography variant='h5'>Карточка с скрытой кнопкой</Typography>
+                    <p className="text-sm text-gray-600 mb-4">Наведите на карточку чтобы увидеть кнопку</p>
+                    <Button
+                        variant="options"
+                        className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    >
+                        ✏️ Редактировать
+                    </Button>
+                </Card>
+                <p className="text-xs text-muted mt-2">
+                    Кнопка появляется только при наведении на родительский элемент с классом "group"
+                </p>
+            <p className="text-xs text-muted mt-2">
+                Кнопка появляется только при наведении на родительский элемент с классом "group"
+            </p>
         </div>
 
         <div>
@@ -57,13 +92,42 @@ const tabsPreviewContentOptions: TabsContentOptionProps[] = [
             <div className="space-y-6">
                 <div>
                     <h3 className="text-lg font-semibold text-copy mb-3">Variants</h3>
-                    <div className="flex gap-3 flex-wrap">
+                    {/* родительский div */}
+                    <div className="flex gap-3 flex-wrap group">
                         <Button variant="primary">Primary</Button>
                         <Button variant="secondary">Secondary</Button>
                         <Button variant="outline">Outline</Button>
+                        <Button variant="unstyled">Unstyled</Button>
+
+                        {/* вариант options  */}
+                        <div className="relative">
+                            <div className="absolute -top-6 left-0 text-xs text-muted opacity-30 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                                Показывается при hover
+                            </div>
+                            <div className="group-hover:opacity-100 opacity-10 transition-opacity duration-300">
+                                <Button variant="options">Options</Button>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
-
+                {/* пример кнопки в связке с карточкой */}
+                <div>
+                    <h4 className="font-medium mb-2">* Вариант "options" (требует group):</h4>
+                    <Card className="group relative">
+                        <Typography variant='h5'>Карточка с скрытой кнопкой</Typography>
+                        <p className="text-sm text-gray-600 mb-4">Наведите на карточку чтобы увидеть кнопку</p>
+                        <Button
+                            variant="options"
+                            className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                        >
+                            ✏️ Редактировать
+                        </Button>
+                    </Card>
+                    <p className="text-xs text-muted mt-2">
+                        Кнопка появляется только при наведении на родительский элемент с классом "group"
+                    </p>
+                </div>
                 <div>
                     <h3 className="text-lg font-semibold text-copy mb-3">Sizes</h3>
                     <div className="flex gap-3 flex-wrap items-center">
@@ -107,7 +171,7 @@ const tabsPreviewContentOptions: TabsContentOptionProps[] = [
                                 <td className="py-2 pr-4 font-mono">{prop.prop}</td>
                                 <td className="py-2 pr-4 font-mono">{prop.type}</td>
                                 <td className="py-2 pr-4">{prop.defaultValue}</td>
-                                <td className="py-2 pr-4 ">{prop.description}</td>
+                                <td className="py-2 pr-4 whitespace-pre-line ">{prop.description}</td>
                             </tr>
                         ))}
                     </tbody>

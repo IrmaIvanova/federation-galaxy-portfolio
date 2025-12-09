@@ -6,11 +6,16 @@ export const buttonPropsDocs = [
     description: 'Содержимое кнопки (текст, иконки и т.д.)',
     defaultValue: '-',
   },
-  {
+ {
     prop: 'variant',
-    type: "'primary' | 'secondary' | 'outline'",
+    type: "'primary' | 'secondary' | 'outline' | 'unstyled' | 'options'",
     required: false,
-    description: 'Вариант стилизации кнопки. Primary использует акцентный цвет темы',
+    description: `Вариант стилизации кнопки.\n
+      • primary - основное действие\n
+      • secondary - второстепенное действие\n
+      • outline - контурная кнопка\n
+      • unstyled - без стилей\n
+      • options - требует родителя с классом group`,
     defaultValue: "'primary'",
   },
   {

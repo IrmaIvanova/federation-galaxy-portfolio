@@ -22,20 +22,20 @@ export const ColorCard: React.FC<{
         switch (item.name) {
             case 'Accent':
                 return isDemoDark
-                    ? 'bg-dark-accent text-dark-copy'
-                    : 'bg-light-accent text-light-copy';
+                    ? '!bg-dark-accent text-dark-copy'
+                    : '!bg-light-accent text-light-copy';
             case 'Gray':
                 return isDemoDark
-                    ? 'bg-dark-gray-400 text-dark-copy'
-                    : 'bg-light-gray-400 text-light-copy';
+                    ? '!bg-dark-gray-400 text-dark-copy'
+                    : '!bg-light-gray-400 text-light-copy';
             case 'Background':
                 return isDemoDark
-                    ? 'bg-dark-background text-dark-copy border border-dark-gray-700'
-                    : 'bg-light-background text-light-copy border border-light-gray-200';
+                    ? '!bg-dark-background text-dark-copy border border-dark-gray-700'
+                    : '!bg-light-background text-light-copy border border-light-gray-200';
             case 'Gradient':
                 return isDemoDark
-                    ? 'bg-gradient-accent-dark text-dark-copy'
-                    : 'bg-gradient-accent-light text-light-copy';
+                    ? '!bg-gradient-accent-dark text-dark-copy'
+                    : '!bg-gradient-accent-light text-light-copy';
             default:
                 return '';
         }
@@ -48,7 +48,7 @@ export const ColorCard: React.FC<{
 
             {/* Кнопка переключения темы */}
             <Button
-                variant="opt"
+                variant="options"
                 onClick={(e) => {
                     e.stopPropagation();
                     onToggleTheme();
@@ -62,7 +62,7 @@ export const ColorCard: React.FC<{
 
             {/* Кнопка копирования */}
             <Button
-                variant="opt"
+                variant="options"
                 onClick={handleCopy}
                 className={` ${btnClassName} right-3
                     ${copied ? 'opacity-100 scale-110 bg-green-500' : 'opacity-0 group-hover:opacity-100'}
@@ -75,9 +75,7 @@ export const ColorCard: React.FC<{
 
             {/* Основная карточка*/}
             <Card
-
-                className={`
-          ${getBgClass()}
+                className={` ${getBgClass()}
           p-6 rounded-lg text-center cursor-pointer 
           transition-all duration-300
           hover:scale-[1.02] active:scale-[0.98]
