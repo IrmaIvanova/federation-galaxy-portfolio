@@ -3,7 +3,8 @@ import {
   Link as RouterLink, 
   LinkProps as RouterLinkProps,
   NavLink,
-  NavLinkProps
+  NavLinkProps,
+  useLocation
 } from 'react-router-dom';
 import { cn } from '../../../utils/cn';
 
@@ -33,6 +34,12 @@ export interface CustomLinkProps extends Omit<RouterLinkProps, 'to'> {
   
   /** Использовать NavLink (для активных состояний) */
   nav?: boolean;
+  
+  /** Плавная прокрутка для якорей */
+  smoothScroll?: boolean;
+  
+  /** Смещение при прокрутке к якорю (в пикселях) */
+  scrollOffset?: number;
 }
 
 export const CustomLink = forwardRef<HTMLAnchorElement, CustomLinkProps>(({
@@ -44,9 +51,19 @@ export const CustomLink = forwardRef<HTMLAnchorElement, CustomLinkProps>(({
   className,
   external = false,
   nav = false,
+  smoothScroll = true,
+  scrollOffset = 0,
   ...props
 }, ref) => {
-  // Классы для вариантов (теперь без dark: префиксов - они в CSS)
+  const location = useLocation();
+  
+  // Проверяем является ли ссылка якорем (начинается с #)
+  const isAnchor = typeof to === 'string' && to.startsWith('#');
+  
+  // Проверяем находимся ли мы уже на нужной странице для якоря
+  const isSamePageAnchor = isAnchor && !to.includes('/');
+  
+  // Классы для вариантов
   const variantClasses = {
     default: 'link-default',
     primary: 'link-primary',
@@ -68,7 +85,78 @@ export const CustomLink = forwardRef<HTMLAnchorElement, CustomLinkProps>(({
     className
   );
 
-  // Для внешних ссылок
+  // Функция для плавной прокрутки к якорю
+  const scrollToAnchor = (e: React.MouseEvent<HTMLAnchorElement>, anchorId: string) => {
+    if (!smoothScroll) return;
+    
+    e.preventDefault();
+    const element = document.getElementById(anchorId);
+    
+    if (element) {
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - scrollOffset;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+      
+      // Обновляем URL без перезагрузки страницы
+      window.history.pushState(null, '', `#${anchorId}`);
+    }
+  };
+
+  // 1. Якорь на текущей странице (обрабатываем через обычный <a> с smooth scroll)
+  if (isSamePageAnchor) {
+    const anchorId = to.substring(1); // убираем #
+    
+    return (
+      <a
+        ref={ref}
+        href={to}
+        className={linkClasses}
+        onClick={(e) => scrollToAnchor(e, anchorId)}
+        {...props}
+      >
+        {children}
+      </a>
+    );
+  }
+
+  // 2. Якорь на другой странице (React Router справится)
+  if (isAnchor) {
+    // Это якорь на другой странице, например "/about#team"
+    if (nav) {
+      return (
+        <NavLink
+          ref={ref}
+          to={to}
+          className={({ isActive }) => 
+            cn(
+              linkClasses,
+              isActive && 'link-active'
+            )
+          }
+          {...props as NavLinkProps}
+        >
+          {children}
+        </NavLink>
+      );
+    }
+    
+    return (
+      <RouterLink
+        ref={ref}
+        to={to}
+        className={linkClasses}
+        {...props}
+      >
+        {children}
+      </RouterLink>
+    );
+  }
+
+  // 3. Для внешних ссылок
   if (external) {
     return (
       <a
@@ -84,7 +172,7 @@ export const CustomLink = forwardRef<HTMLAnchorElement, CustomLinkProps>(({
     );
   }
 
-  // Для NavLink (с активным состоянием)
+  // 4. Для NavLink (с активным состоянием)
   if (nav) {
     return (
       <NavLink
@@ -93,7 +181,7 @@ export const CustomLink = forwardRef<HTMLAnchorElement, CustomLinkProps>(({
         className={({ isActive }) => 
           cn(
             linkClasses,
-            isActive && 'link-active' // можно добавить класс для активного состояния
+            isActive && 'link-active'
           )
         }
         {...props as NavLinkProps}
@@ -103,7 +191,7 @@ export const CustomLink = forwardRef<HTMLAnchorElement, CustomLinkProps>(({
     );
   }
 
-  // Для обычных внутренних ссылок
+  // 5. Для обычных внутренних ссылок
   return (
     <RouterLink
       ref={ref}

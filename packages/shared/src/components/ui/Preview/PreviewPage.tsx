@@ -13,6 +13,7 @@ import { CustomLinkPreview } from "../CustomLink/PreviewCustomLink";
 import { SectionPreview } from "../../Layout/Section/SectionPreview";
 import { GridPreview } from "../../Layout/Grid/GridPreview";
 import { ColorSystemDemo } from "./index";
+import { CustomLink } from "../CustomLink";
 export const PreviewPage: React.FC = () => {
     const { theme } = useTheme();
 
@@ -43,22 +44,46 @@ export const PreviewPage: React.FC = () => {
                     </p>
                 </div>
             </Section>
-            {/* Tabs Section */}
 
-            <TabsPreview />
+            <div id="contents" className="mb-12 rounded-lg flex flex-col">
+                <Typography variant="h2" children="Оглавление" />
+                <CustomLink to='#TabsSection' children="Tabs Section" />
+                <CustomLink to='#TypographySection' children="Typography Section" />
+                <CustomLink to='#CustomLinkSection' children="CustomLink Section" />
+                <CustomLink to='#ButtonsSection' children="Buttons Section" />
+                <CustomLink to='#CardsSection' children="CardsSection" />
+                <CustomLink to='#SectionSystem' children="Section System" />
+                <CustomLink to='#GridSystem' children="Grid System" />
+                <CustomLink to='#ColorSystem' children="Color System" />
+            </div>
+            <CustomLink to='#contents' children="К оглавлению" className="fixed bottom-3 right-4 z-10 w-25 h-10" />
+
+            {/* Tabs Section */}
+            <div id="TabsSection" >
+                <TabsPreview />
+
+            </div>
+
 
             {/* Typography Section */}
-            <TypographyPreview />
+            <div id="TypographySection" >
+                <TypographyPreview />
+            </div>
 
             {/* CustomLink Section */}
-            <CustomLinkPreview />
-
+            <div id="CustomLinkSection" >
+                <CustomLinkPreview />
+            </div>
 
             {/* Buttons Section */}
-            <ButtonPreview />
+            <div id="ButtonsSection" >
+                <ButtonPreview />
+            </div>
 
             {/* Cards Section */}
-            <CardPreview />
+            <div id="CardsSection" >
+                <CardPreview />
+            </div>
 
             {/* Layout Components */}
             <Section className="mb-12">
@@ -66,17 +91,21 @@ export const PreviewPage: React.FC = () => {
             </Section>
 
             {/* Section System */}
-
-            <SectionPreview />
-
+            <div id="SectionSystem" >
+                <SectionPreview />
+            </div>
 
 
             {/* Grid System */}
-            <GridPreview />
+            <div id="GridSystem" >
+                <GridPreview />
+            </div>
 
             {/* Colors Demo */}
-            <ColorSystemDemo />
+            <div id="ColorSystem" >
 
+                <ColorSystemDemo />
+            </div>
         </Container>
     );
 };

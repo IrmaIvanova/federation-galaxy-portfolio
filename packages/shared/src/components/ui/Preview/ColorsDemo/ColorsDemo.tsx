@@ -49,7 +49,7 @@ export const ColorSystemDemo: React.FC = () => {
     return (
         <Section className="mb-12">
             <div className="text-center mb-6">
-                <h2 className="text-2xl font-bold text-copy mb-2">Color System</h2>
+                <h2  className="text-2xl font-bold text-copy mb-2">Color System</h2>
                 <p className="text-muted">
                     Интерактивная демонстрация цветовой палитры
                     <span className="mx-2">•</span>
