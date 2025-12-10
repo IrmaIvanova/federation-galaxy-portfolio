@@ -71,9 +71,9 @@ const tabsPreviewContentOptions: TabsContentOptionProps[] = [
             <div   className="mb-10">
                 <Typography variant='h3' > Варианты ссылок:</Typography>
 
-                <CustomLink to="/about">Обо мне (default)</CustomLink>
+                <CustomLink to="/сlickyLinkPage">Обо мне (default)</CustomLink>
                 <br />
-                <CustomLink to="/projects" variant="primary">
+                <CustomLink to="/сlickyLinkPage" variant="primary">
                     Проекты (primary)
                 </CustomLink>
 
@@ -83,7 +83,7 @@ const tabsPreviewContentOptions: TabsContentOptionProps[] = [
                     external
                     variant="secondary"
                 >
-                    GitHub (external)
+                    GitHub (external)  
                 </CustomLink>
             </div>
 
@@ -116,7 +116,7 @@ const tabsPreviewContentOptions: TabsContentOptionProps[] = [
                     <br />
 
                     <CustomLink
-                        to="/other"
+                        to="/сlickyLinkPage"
                         variant="primary">
                         Other (неактивно)
                     </CustomLink>
