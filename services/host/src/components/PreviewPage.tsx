@@ -1,24 +1,12 @@
-import React, { useState } from "react";
-import { Button, ButtonPreview } from "../Button";
-import { Card, CardPreview } from "../Card";
-import { Container } from "../../Layout/Container";
-import { Section } from "../../Layout/Section";
-import { useTheme } from "../../../providers/ThemeProvider";
-import { ThemeToggle } from "../ThemeToogle/ThemeToogle";
-
-import { TabsPreview } from '../Tabs/TabsPreview'
-import { Typography, TypographyPreview } from "../Typography";
-import { CustomLinkPreview } from "../CustomLink/PreviewCustomLink";
-import { SectionPreview } from "../../Layout/Section/SectionPreview";
-import { GridPreview } from "../../Layout/Grid/GridPreview";
-import { ColorSystemDemo } from "./index";
-import { CustomLink } from "../CustomLink";
-import { useLocation, useParams } from "react-router-dom";
+import { Container, useTheme, Section, ThemeToggle, CustomLink, Typography, TabsPreview, TypographyPreview, ButtonPreview, CardPreview, SectionPreview,  } from "@packages/shared/src";
+import { GridPreview } from "@packages/shared/src/components/Layout/Grid/GridPreview";
+import { CustomLinkPreview } from "@packages/shared/src/components/ui/CustomLink/PreviewCustomLink";
+import { ColorSystemDemo } from "@packages/shared/src/components/ui/Preview";
+import React from "react";
 
 
 export const PreviewPage: React.FC = () => {
     const { theme } = useTheme();
-
 
 
     return (
@@ -110,19 +98,6 @@ export const PreviewPage: React.FC = () => {
 
                 <ColorSystemDemo />
             </div>
-
-       
-            <Section>
-                <Card id="smootheControll" className="text-center" >
-                    
-                    <CustomLink to='#CustomLinkSection' size="lg" variant="primary">
-
-                        Скролл, как видишь, работает. Кликни сюда, чтобы вернуться в раздел ссылок.
-
-                    </CustomLink>
-                </Card>
-            </Section >
-
         </Container>
     );
 };

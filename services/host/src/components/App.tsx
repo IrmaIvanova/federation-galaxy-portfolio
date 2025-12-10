@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import { portfolioRoutes } from '@packages/shared/src/routes/portfolio'
 import { codeExamplesRoutes } from '@packages/shared/src/routes/code-examples'
 import '../styles/tailwind.css';
+import { useLocation } from 'react-router-dom';
 // import { Button } from '@packages/shared/src/components/Button/Button'
 import {
   Button,
@@ -21,8 +22,8 @@ import {
 
 
 export const App: React.FC = () => {
-
-
+  let location = useLocation()
+  console.log("loc", location)
 
   return (
     // <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-8">
@@ -91,6 +92,7 @@ export const App: React.FC = () => {
       <div className="flex gap-6 justify-center mb-8">
         <CustomLink
           to={portfolioRoutes.about}
+          nav={location.pathname === portfolioRoutes.about}
           variant='primary'>
 
           Portfolio
@@ -98,12 +100,16 @@ export const App: React.FC = () => {
         <CustomLink
           variant='primary'
           to={codeExamplesRoutes.main}
+          nav={location.pathname === codeExamplesRoutes.main}
+
         >
           CODE EXAMPLES
         </CustomLink>
         <CustomLink
           variant='primary'
-          to={"/customStoryBook"} >
+          to={"/customStoryBook"}
+          nav={location.pathname === "/customStoryBook"}
+        >
           Design System Preview
         </CustomLink>
         <CustomLink

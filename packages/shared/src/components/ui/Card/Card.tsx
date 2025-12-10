@@ -5,12 +5,14 @@ export interface CardProps {
   children: React.ReactNode;
   className?: string;
   padding?: 'none' | 'sm' | 'md' | 'lg';
+  id?: string
 }
 
 export const Card: React.FC<CardProps> = ({
   children,
   className,
   padding = 'md',
+  id
 }) => {
   const paddingClasses = {
     none: '',
@@ -20,7 +22,7 @@ export const Card: React.FC<CardProps> = ({
   };
 
   return (
-    <div className={cn('card', paddingClasses[padding], className)}>
+    <div id={id} className={cn('card', paddingClasses[padding], className)}>
       {children}
     </div>
   );

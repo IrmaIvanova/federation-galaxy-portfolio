@@ -81,7 +81,7 @@ export const CustomLink = forwardRef<HTMLAnchorElement, CustomLinkProps>(({
     'link', // базовый класс
     variantClasses[variant],
     sizeClasses[size],
-    !underline && 'link-no-underline',
+    !underline && !nav && 'link-no-underline',
     className
   );
 
@@ -174,15 +174,17 @@ export const CustomLink = forwardRef<HTMLAnchorElement, CustomLinkProps>(({
 
   // 4. Для NavLink (с активным состоянием)
   if (nav) {
+    console.log("to", to )
     return (
       <NavLink
         ref={ref}
         to={to}
-        className={({ isActive }) => 
-          cn(
+        className={({ isActive }) =>{ 
+          console.log("isActive", isActive)
+          return cn(
             linkClasses,
-            isActive && 'link-active'
-          )
+            isActive && 'link-active underline'
+          )}
         }
         {...props as NavLinkProps}
       >

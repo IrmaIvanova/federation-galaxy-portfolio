@@ -3,7 +3,7 @@ export const customLinkPropsDocs = [
     prop: 'to',
     type: 'string',
     required: true,
-    description: 'URL для перехода. Для внешних ссылок используйте полный URL, для внутренних - относительный путь',
+    description: 'URL для перехода. Может быть относительным путем, полным URL или якорем (#section)',
     defaultValue: '-',
   },
   {
@@ -17,7 +17,13 @@ export const customLinkPropsDocs = [
     prop: 'variant',
     type: "'default' | 'primary' | 'secondary' | 'muted'",
     required: false,
-    description: 'Вариант стилизации ссылки. Primary использует акцентный цвет темы',
+    description: 'Вариант стилизации ссылки:',
+    details: [
+      '• default - стандартная ссылка',
+      '• primary - акцентный цвет темы',
+      '• secondary - второстепенная ссылка',
+      '• muted - приглушенный вариант'
+    ],
     defaultValue: "'default'",
   },
   {
@@ -32,7 +38,7 @@ export const customLinkPropsDocs = [
     type: 'boolean',
     required: false,
     description: 'Показывать ли подчеркивание у ссылки',
-    defaultValue: 'true',
+    defaultValue: 'false',
   },
   {
     prop: 'className',
@@ -48,41 +54,25 @@ export const customLinkPropsDocs = [
     description: 'Если true, ссылка откроется в новой вкладке (использует тег <a>)',
     defaultValue: 'false',
   },
-];
-
-export const customLinkExamples = [
   {
-    title: 'Базовая внутренняя ссылка',
-    code: `<CustomLink to="/about">Обо мне</CustomLink>`,
+    prop: 'nav',
+    type: 'boolean',
+    required: false,
+    description: 'Использовать NavLink для отслеживания активного состояния',
+    defaultValue: 'false',
   },
   {
-    title: 'Акцентная ссылка без подчеркивания',
-    code: `<CustomLink 
-  to="/projects"
-  variant="primary"
-  underline={false}
->
-  Проекты
-</CustomLink>`,
+    prop: 'smoothScroll',
+    type: 'boolean',
+    required: false,
+    description: 'Включить плавную прокрутку для якорей на текущей странице',
+    defaultValue: 'true',
   },
   {
-    title: 'Внешняя ссылка',
-    code: `<CustomLink 
-  to="https://github.com"
-  external
-  variant="secondary"
->
-  GitHub
-</CustomLink>`,
-  },
-  {
-    title: 'Маленькая приглушенная ссылка',
-    code: `<CustomLink 
-  to="/contacts"
-  variant="muted"
-  size="sm"
->
-  Контакты
-</CustomLink>`,
+    prop: 'scrollOffset',
+    type: 'number',
+    required: false,
+    description: 'Смещение в пикселях при прокрутке к якорю (полезно для фиксированных хедеров)',
+    defaultValue: '0',
   },
 ];

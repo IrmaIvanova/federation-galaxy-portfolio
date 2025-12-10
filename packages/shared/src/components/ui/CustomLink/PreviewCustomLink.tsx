@@ -4,6 +4,7 @@ import React, { Children } from 'react';
 import { CustomLink } from './CustomLink';
 import { CodePreview } from '../CodePreview';
 import { customLinkPropsDocs } from './docs';
+import { Typography } from '../Typography';
 
 
 const codeTabs = `import React from 'react';
@@ -25,6 +26,32 @@ const Example = () => (
         >
             GitHub (external)
         </CustomLink>
+        <div>
+            <h4 className="font-medium mb-2">Якорные ссылки:</h4>
+            <div className="space-y-2">
+                <CustomLink to="#section1" variant="primary">
+                    Якорь с smooth scroll
+                </CustomLink>
+                <div className="text-xs text-muted">
+                    Нажмите чтобы протестировать плавную прокрутку
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <h4 className="font-medium mb-2">NavLink (активное состояние):</h4>
+            <div className="flex gap-4">
+                <CustomLink to="/preview" nav variant="primary">
+                    Preview (активно)
+                </CustomLink>
+                <CustomLink to="/other" nav variant="primary">
+                    Other (неактивно)
+                </CustomLink>
+            </div>
+            <div className="text-xs text-muted mt-1">
+                NavLink автоматически добавляет класс .link-active
+            </div>
+        </div>
     </div>
 );
 `
@@ -41,15 +68,15 @@ const tabsPreviewContentOptions: TabsContentOptionProps[] = [
     {
         value: 'preview',
         children: <>
-            <div className="space-y-4">
+            <div   className="mb-10">
+                <Typography variant='h3' > Варианты ссылок:</Typography>
+
                 <CustomLink to="/about">Обо мне (default)</CustomLink>
                 <br />
                 <CustomLink to="/projects" variant="primary">
                     Проекты (primary)
                 </CustomLink>
-                <CustomLink to="/projects" nav variant="primary">
-                    Проекты (primary)
-                </CustomLink>
+
                 <br />
                 <CustomLink
                     to="https://github.com"
@@ -58,6 +85,45 @@ const tabsPreviewContentOptions: TabsContentOptionProps[] = [
                 >
                     GitHub (external)
                 </CustomLink>
+            </div>
+
+            <div className="mb-10">
+                <Typography variant='h3' >Якорные ссылки:</Typography>
+                <div className="space-y-2">
+                    <CustomLink to="#smootheControll"  variant="primary">
+                        Якорь с smooth scroll
+                    </CustomLink>
+                    <div className="text-xs text-muted">
+                        Нажмите чтобы протестировать плавную прокрутку
+                    </div>
+                </div>
+            </div>
+
+
+            <div>
+                <Typography variant='h3' >NavLink (активное состояние):</Typography>
+
+                <div >
+
+                    <CustomLink
+                        variant='primary'
+                        to="/customStoryBook"
+                        nav
+                    >
+                        Preview (активно)
+                    </CustomLink>
+
+                    <br />
+
+                    <CustomLink
+                        to="/other"
+                        variant="primary">
+                        Other (неактивно)
+                    </CustomLink>
+                </div>
+                <div className="text-xs text-muted mt-1">
+                    NavLink автоматически добавляет класс .link-active
+                </div>
             </div>
         </>
     },
@@ -85,7 +151,18 @@ const tabsPreviewContentOptions: TabsContentOptionProps[] = [
                                 <td className="py-2 pr-4 font-mono">{prop.prop}</td>
                                 <td className="py-2 pr-4 font-mono">{prop.type}</td>
                                 <td className="py-2 pr-4">{prop.defaultValue}</td>
-                                <td className="py-2 pr-4 ">{prop.description}</td>
+                                <td className="py-2 pr-4 ">
+                                    {prop.description}
+                                    {prop.details && (
+                                        <ul className="mt-1 space-y-0.5">
+                                            {prop.details.map((detail, idx) => (
+                                                <li key={idx} className="text-xs">
+                                                    {detail}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    )}
+                                </td>
                             </tr>
                         ))}
                     </tbody>

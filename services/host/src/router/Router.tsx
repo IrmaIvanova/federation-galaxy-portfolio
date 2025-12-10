@@ -5,7 +5,7 @@ import codeExamplesRoutes from 'examples/Router';
 // @ts-ignore
 import portfolioRoutes from 'portfolio/Router';
 import { ThemeProvider } from '@packages/shared/src';
-import { PreviewPage } from '@packages/shared/src';
+import { PreviewPage } from "@packages/shared/src";
 
 
 export const router = createBrowserRouter([
