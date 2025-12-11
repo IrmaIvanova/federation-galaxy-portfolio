@@ -14,7 +14,7 @@ export const ClickyLinkPage: React.FC = () => {
 
             </Typography>
 
-            <CustomLink to="/customStoryBook" variant="primary" external> вернуться в раздел с demo </CustomLink>
+            <CustomLink to="/customStoryBook#CustomLinkSection" variant="primary"> вернуться в раздел с demo </CustomLink>
 
             <CustomLink
                 variant="secondary"

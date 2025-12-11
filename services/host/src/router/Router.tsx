@@ -6,7 +6,7 @@ import codeExamplesRoutes from 'examples/Router';
 import portfolioRoutes from 'portfolio/Router';
 import { ThemeProvider } from '@packages/shared/src';
 import { PreviewPage } from "@packages/shared/src";
-import { ClickyLinkPage } from "@/components/PreviewPage";
+import { ClickyLinkPage } from "@/components/ClickyLinkPage";
 
 
 export const router = createBrowserRouter([
