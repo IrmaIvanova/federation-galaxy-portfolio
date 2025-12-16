@@ -11,6 +11,20 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
+      backgroundImage: {
+        'hero-pattern': "url('/img/hero-pattern.svg')",
+        'footer-texture': "url('/img/footer-texture.png')",
+      },
+      animation: {
+        'orbit-med': 'orbit-med 40s linear infinite',
+        'orbit-med-reverse': 'orbit-med 40s linear infinite reverse',
+      },
+      keyframes: {
+        'orbit-med': {
+          from: { transform: 'rotate(0deg)' },
+          to: { transform: 'rotate(360deg)' }
+        }
+      },
       colors: {
         // Светлая тема 
         light: {
