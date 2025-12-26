@@ -1,5 +1,5 @@
 import { App } from "@/components/App";
-import { Shop } from "@/pages/shop";
+import UserList from "@/pages/usersList/UsersList";
 import { ThemeProvider } from "@packages/shared/src";
 import { Suspense } from "react";
 import { createBrowserRouter } from "react-router-dom";
@@ -15,7 +15,9 @@ const routes = [
             {
                 path: "/code-examples/main",
                 element: <Suspense fallback={"Loading..."}>
-                    <Shop />
+                    <UserList />
+
+
                 </Suspense>,
 
             },
@@ -23,8 +25,7 @@ const routes = [
                 path: "/code-examples/second",
                 element: <Suspense fallback={"Loading..."}>
                     <div>
-                        <h1> Kukaracha</h1>
-                       
+                        <h1> Kukaracha 12345</h1>
                     </div>
                 </Suspense>,
 
