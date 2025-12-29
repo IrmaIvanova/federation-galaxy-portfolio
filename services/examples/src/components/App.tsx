@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import '../styles/tailwind.css'
-import { Typography } from '@packages/shared/src';
+import { CustomLink, Typography } from '@packages/shared/src';
 import { UsersList } from '@/pages/usersList';
+import { codeExamplesRoutes } from '@packages/shared/src/routes/code-examples';
 
 
 export const App: React.FC = () => {
@@ -14,8 +15,10 @@ export const App: React.FC = () => {
             <Typography variant='h1'>
                 code-examples MODULE
             </Typography>
-
-            <UsersList />
+            {/* 
+            <UsersList /> */}
+            <CustomLink to={codeExamplesRoutes.main} children='Пример списка пользователей'/>
+            <CustomLink to={codeExamplesRoutes.cards.base} children='Карточки с вопросами'/>
             <Outlet />
         </div>
     )

@@ -1,4 +1,6 @@
 import { App } from "@/components/App";
+import { CardsReact } from "@/components/cards/reactCards/ReactCards";
+import { Cards } from "@/pages/cards/Cards";
 import UserList from "@/pages/usersList/UsersList";
 import { ThemeProvider } from "@packages/shared/src";
 import { Suspense } from "react";
@@ -13,7 +15,7 @@ const routes = [
         </ThemeProvider>,
         children: [
             {
-                path: "/code-examples/main",
+                path: "main",
                 element: <Suspense fallback={"Loading..."}>
                     <UserList />
 
@@ -22,14 +24,42 @@ const routes = [
 
             },
             {
-                path: "/code-examples/second",
+                path: "cards",
                 element: <Suspense fallback={"Loading..."}>
-                    <div>
-                        <h1> Kukaracha 12345</h1>
-                    </div>
+                    <Cards />
+                </Suspense>,
+
+            }, 
+            {
+                path: "cards/react",
+                element: <Suspense fallback={"Loading..."}>
+                   <CardsReact/>
                 </Suspense>,
 
             }
+            // {
+            //     path: "/code-examples/main",
+            //     element: <Suspense fallback={"Loading..."}>
+            //         <UserList />
+
+
+            //     </Suspense>,
+
+            // },
+            // {
+            //     path: "/code-examples/cards",
+            //     element: <Suspense fallback={"Loading..."}>
+            //         <Cards />
+            //     </Suspense>,
+
+            // }, 
+            // {
+            //     path: "/code-examples/cards/react",
+            //     element: <Suspense fallback={"Loading..."}>
+            //        <CardsReact/>
+            //     </Suspense>,
+
+            // }
         ]
     }
 ]
