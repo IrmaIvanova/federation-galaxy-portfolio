@@ -48,7 +48,7 @@ export const FlatSolarSystem: React.FC = () => {
       } as React.CSSProperties}
     >
       {/* Фон */}
-      <rect x="0" y="0" width="1800" height="700" className="fill-light-background dark:fill-dark-background-muted" />
+      <rect x="0" y="0" width="1800" height="700" className="fill-light-background dark:fill-dark-background" />
 
       {/* Орбиты */}
       <g id="orbits" transform="translate(900,350)">

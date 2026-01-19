@@ -5,7 +5,7 @@ export interface SectionProps {
   children: React.ReactNode;
   className?: string;
   padding?: 'none' | 'sm' | 'md' | 'lg' | 'xl';
-  background?: 'default' | 'muted' | 'primary' | 'secondary';
+  background?: 'default' | 'muted' | 'primary' | 'secondary' | 'transparent';
   as?: 'section' | 'div' | 'article';
 }
 
@@ -13,7 +13,7 @@ export const Section: React.FC<SectionProps> = ({
   children,
   className,
   padding = 'md',
-  background = 'default',
+  background = 'transparent',
   as: Component = 'section',
 }) => {
   const paddingClasses = {
@@ -25,21 +25,25 @@ export const Section: React.FC<SectionProps> = ({
   };
 
   const backgroundClasses = {
-    default: 'bg-transparent',
+    transparent: 'bg-transparent',
+    default: 'bg-light-background dark:bg-dark-background',
     muted: 'bg-light-background-muted dark:bg-dark-background-muted',
     primary: 'bg-light-accent-50 dark:bg-dark-accent-50',
     secondary: 'bg-light-gray-50 dark:bg-dark-gray-50',
   };
 
   return (
-    <Component 
+    <Component
       className={cn(
+        " mx-auto w-full max-w-[1440px] ",
         paddingClasses[padding],
         backgroundClasses[background],
         className
       )}
     >
+
       {children}
+
     </Component>
   );
 };

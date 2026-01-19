@@ -22,7 +22,7 @@ export const PreviewPage: React.FC = () => {
 
 
     return (
-        <Container size="xl" padding="lg">
+        <>
 
 
             {/* Header */}
@@ -49,7 +49,8 @@ export const PreviewPage: React.FC = () => {
                 </div>
             </Section>
 
-            <div id="contents" className="mb-12 rounded-lg flex flex-col">
+            {/* <div id="contents" className="mb-12 rounded-lg flex flex-col"> */}
+            <Container padding="none" className="mb-12 flex flex-col">
                 <Typography variant="h2" children="Оглавление" />
                 <CustomLink to='#TabsSection' children="Tabs Section" />
                 <CustomLink to='#TypographySection' children="Typography Section" />
@@ -59,7 +60,8 @@ export const PreviewPage: React.FC = () => {
                 <CustomLink to='#SectionSystem' children="Section System" />
                 <CustomLink to='#GridSystem' children="Grid System" />
                 <CustomLink to='#ColorSystem' children="Color System" />
-            </div>
+            </Container>
+            {/* </div> */}
             <CustomLink to='#contents' children="К оглавлению" className="fixed bottom-3 right-4 z-10 w-25 h-10" />
 
             {/* Tabs Section */}
@@ -111,10 +113,10 @@ export const PreviewPage: React.FC = () => {
                 <ColorSystemDemo />
             </div>
 
-       
+
             <Section>
                 <Card id="smootheControll" className="text-center" >
-                    
+
                     <CustomLink to='#CustomLinkSection' size="lg" variant="primary">
 
                         Скролл, как видишь, работает. Кликни сюда, чтобы вернуться в раздел ссылок.
@@ -123,6 +125,6 @@ export const PreviewPage: React.FC = () => {
                 </Card>
             </Section >
 
-        </Container>
+        </>
     );
 };
