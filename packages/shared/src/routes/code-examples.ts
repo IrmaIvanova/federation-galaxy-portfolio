@@ -6,8 +6,13 @@ export const codeExamplesRoutes = {
     cards: {
         base: `${CODE_EXAMPLES_BASE}/cards`,
         react: `${CODE_EXAMPLES_BASE}/cards/react`,
-        vue: `${CODE_EXAMPLES_BASE}/cards/vue`,
-        angular: `${CODE_EXAMPLES_BASE}/cards/angular`,
+        typescript: `${CODE_EXAMPLES_BASE}/cards/typescript`,
+        hooksandrerenders: `${CODE_EXAMPLES_BASE}/cards/hooksandrerenders`,
+        redux: `${CODE_EXAMPLES_BASE}/cards/redux`,
+        webGl: `${CODE_EXAMPLES_BASE}/cards/webGL`,
+        mui: `${CODE_EXAMPLES_BASE}/cards/mui`,
+        test: `${CODE_EXAMPLES_BASE}/cards/test`,
+        async: `${CODE_EXAMPLES_BASE}/cards/async`,
         // Динамические пути
         detail: (id: string) => `${CODE_EXAMPLES_BASE}/cards/${id}`,
     },
