@@ -28,7 +28,27 @@ export default (env: EnvVariables) => {
         platform: env.platform ?? "desktop"
 
     })
-        config.plugins.push(new webpack.container.ModuleFederationPlugin({
+
+    config.output = {
+        ...config.output,
+        publicPath: 'auto',
+    }
+
+    if (config.devServer) {
+        config.devServer = {
+            ...config.devServer,
+            historyApiFallback: {
+                rewrites: [
+                    { from: /^\/$/, to: '/portfolio' },
+                    { from: /^\/portfolio/, to: '/index.html' },
+                ],
+            },
+            open: ['/portfolio'],
+        }
+    }
+
+    
+    config.plugins.push(new webpack.container.ModuleFederationPlugin({
         name: 'portfolio',
         filename: 'remoteEntry.js',
         exposes: {

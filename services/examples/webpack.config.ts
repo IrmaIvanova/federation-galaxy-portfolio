@@ -29,6 +29,25 @@ export default (env: EnvVariables) => {
 
     })
 
+
+    config.output = {
+        ...config.output,
+        publicPath: 'auto',
+    }
+
+    if (config.devServer) {
+        config.devServer = {
+            ...config.devServer,
+            historyApiFallback: {
+                rewrites: [
+                    { from: /^\/$/, to: '/code-examples' },
+                    { from: /^\/code-examples/, to: '/index.html' },
+                ],
+            },
+            open: ['/code-examples'],
+        }
+    }
+
     config.plugins.push(new webpack.container.ModuleFederationPlugin({
         name: 'examples',
         filename: 'remoteEntry.js',
