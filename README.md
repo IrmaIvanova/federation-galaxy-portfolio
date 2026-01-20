@@ -55,45 +55,105 @@ portfolio/
 - **TypeScript**
 - **Webpack 5 + Module Federation**
 - **React Router DOM**
+- **Code viewer (Tailwind CSS)**
+- **prismjs**
 - Общие build-конфиги
 - Общий shared-пакет
 
 Дополнительные технологии будут подключаться постепенно:
-- Tailwind CSS
-- Radix UI
 - Framer Motion
-- Code viewer (Shiki / Sandpack)
 - Поиск по проекту
 - Блог
 - UI-кит
 
 ---
-
 ## 🛠 Доступные команды
 
-В каждом сервисе:
+В корне проекта (monorepo)
 
+
+#### Запускает все сервисы параллельно:
 ```
-npm start # режим разработки (webpack-dev-server)
-npm run build # продакшен-сборка
+npm run dev
+```
+
+
+Host — http://localhost:3000
+
+Portfolio — http://localhost:3001/portfolio
+
+Examples — http://localhost:3002/code-examples
+
+#### Альтернатива npm run dev.
+```
+npm start
+```
+
+Альтернатива npm run dev.
+Запускает все сервисы через npm-run-all.
+
+#### Устанавливает зависимости:
+```
+npm run install:all
+```
+
+Устанавливает зависимости:
+
+в корне проекта
+
+в services/host
+
+в services/portfolio
+
+в services/examples
+
+
+#### Запуск отдельных сервисов
+```
+npm run start:host
+npm run start:portfolio
+npm run start:examples
+```
+
+Каждая команда запускает соответствующий сервис в режиме разработки (webpack-dev-server).
+
+Внутри конкретного сервиса (services/*)
+npm start        # режим разработки
+npm run build    # сборка
 npm run build:dev
 npm run build:prod
-```
 
+ℹ️ Примечание
+
+Проект использует monorepo + workspaces
+
+Все сервисы можно запустить одной командой: npm run dev
+
+В dev-режиме настроен редирект:
+
+/ → /portfolio для сервиса Portfolio
 
 Корневой репозиторий управляет зависимостями для монорепо.
 
 ---
+Добавлены 
+- UI-оформление (Tailwind + кастомные компоненты) +.
+- Введена тёмную/светлую тему.
+- Создан модуль **Code Examples**
+- Создан модуль **Portfolio**
+- Создан модуль **Design System Preview**
+- Добавлен предпросмотр кода прямо в интерфейсе.
+---
 
 ## 🔮 Планы на развитие
 
-- Добавить UI-оформление (Tailwind + кастомные компоненты).
-- Ввести тёмную/светлую тему.
-- Создать модуль **Code Examples** с задачами, компонентами и лайв-кодингом.
-- Реализовать предпросмотр кода прямо в интерфейсе.
+- Расширять **Code Examples**: задачами, компонентами и лайв-кодингом.
+- Оформить **Portfolio**.
+- Расширять **Design System Preview**.
+
 - Ввести блог о разработке.
 - Добавить поиск по проекту / ассистента-маскота.
-- Построить общий дизайн-системный подход.
+- Добавить тесты
 
 ---
 
