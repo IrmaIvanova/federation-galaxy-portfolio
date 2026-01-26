@@ -2,8 +2,16 @@ import React, { useState, useEffect, useRef } from 'react';
 import './SVGGalaxy.styles.css'
 import { useNavigate } from 'react-router-dom';
 import { planetsData } from './planetData'
+import { starsData } from './starsData';
 
 
+const STAR_COLORS = [
+  '#ffffff', // белый
+  '#bcd7ff', // холодно-голубой
+  '#ffe9a3', // тёпло-жёлтый
+  '#ffd1dc', // розоватый
+  '#c7f0ff', // неоновый голубой
+];
 
 export const FlatSolarSystem: React.FC = () => {
   const [isSpinning, setIsSpinning] = useState<boolean>(true);
@@ -40,7 +48,9 @@ export const FlatSolarSystem: React.FC = () => {
     <svg
       ref={svgRef}
       className="w-full h-[60vh] max-h-[600px] min-h-[400px]"
-      viewBox="0 0 1800 700"
+      // viewBox="450 150 900 400"
+      viewBox="300 100 1200 500"
+      // viewBox="0 0 1800 700"
       xmlns="http://www.w3.org/2000/svg"
       aria-label="Flat solar system illustration"
       style={{
@@ -74,32 +84,32 @@ export const FlatSolarSystem: React.FC = () => {
           <stop offset="0%" stopColor="#3aa0ff" />
           <stop offset="100%" stopColor="#180bd6ff" />
         </radialGradient>
-<radialGradient id="saturn-grad" cx="50%" cy="50%">
-  <stop offset="0%" stopColor="#ffca3a" />
-  <stop offset="8%" stopColor="#ffca3a" />
-  <stop offset="12%" stopColor="#d67b0b" />
-  <stop offset="18%" stopColor="#d67b0b" />
-  
-  <stop offset="22%" stopColor="#ffca3a" />
-  <stop offset="28%" stopColor="#ffca3a" />
-  <stop offset="32%" stopColor="#d67b0b" />
-  <stop offset="38%" stopColor="#d67b0b" />
-  
-  <stop offset="42%" stopColor="#ffca3a" />
-  <stop offset="48%" stopColor="#ffca3a" />
-  <stop offset="52%" stopColor="#d67b0b" />
-  <stop offset="58%" stopColor="#d67b0b" />
+        <radialGradient id="saturn-grad" cx="50%" cy="50%">
+          <stop offset="0%" stopColor="#ffca3a" />
+          <stop offset="8%" stopColor="#ffca3a" />
+          <stop offset="12%" stopColor="#d67b0b" />
+          <stop offset="18%" stopColor="#d67b0b" />
 
-  <stop offset="62%" stopColor="#ffca3a" />
-  <stop offset="68%" stopColor="#ffca3a" />
-  <stop offset="72%" stopColor="#d67b0b" />
-  <stop offset="78%" stopColor="#d67b0b" />
+          <stop offset="22%" stopColor="#ffca3a" />
+          <stop offset="28%" stopColor="#ffca3a" />
+          <stop offset="32%" stopColor="#d67b0b" />
+          <stop offset="38%" stopColor="#d67b0b" />
 
-  <stop offset="82%" stopColor="#ffca3a" />
-  <stop offset="88%" stopColor="#ffca3a" />
-  <stop offset="92%" stopColor="#d67b0b" />
-  <stop offset="100%" stopColor="#d67b0b" />
-</radialGradient>
+          <stop offset="42%" stopColor="#ffca3a" />
+          <stop offset="48%" stopColor="#ffca3a" />
+          <stop offset="52%" stopColor="#d67b0b" />
+          <stop offset="58%" stopColor="#d67b0b" />
+
+          <stop offset="62%" stopColor="#ffca3a" />
+          <stop offset="68%" stopColor="#ffca3a" />
+          <stop offset="72%" stopColor="#d67b0b" />
+          <stop offset="78%" stopColor="#d67b0b" />
+
+          <stop offset="82%" stopColor="#ffca3a" />
+          <stop offset="88%" stopColor="#ffca3a" />
+          <stop offset="92%" stopColor="#d67b0b" />
+          <stop offset="100%" stopColor="#d67b0b" />
+        </radialGradient>
 
 
 
@@ -107,22 +117,49 @@ export const FlatSolarSystem: React.FC = () => {
 
       </defs>
       {/* Звёзды */}
+
       <g id="stars">
-        {[
-          [120, 110, 3], [200, 70, 2.5], [260, 200, 2],
-          [430, 550, 3.5], [680, 480, 2], [1030, 140, 3],
-          [1360, 230, 2], [1560, 520, 3], [1680, 380, 2.2],
-          [1190, 560, 2], [820, 90, 2.5]
-        ].map(([cx, cy, r], i) => (
-          <circle
-            key={`star-${i}`}
-            className="fill-light-copy dark:fill-dark-copy opacity-80 animate-pulse"
-            style={{ animationDelay: `${i * 0.2}s` }}
-            cx={cx}
-            cy={cy}
-            r={r}
-          />
-        ))}
+        {starsData.map(([cx, cy, r, animation, color], i) => {
+          // Настраиваем длительность в зависимости от типа анимации
+          let duration;
+          switch (animation) {
+            case 'flicker':
+              duration = 2 + Math.random() * 2; // 2-4 секунды
+              break;
+            case 'quick-flicker':
+              duration = 1 + Math.random() * 1.5; // 1-2.5 секунды
+              break;
+            case 'subtle-flicker':
+              duration = 3 + Math.random() * 3; // 3-6 секунд
+              break;
+            case 'neon-flicker':
+              duration = 3.5 + Math.random() * 2.5; // 3.5-6 секунд
+              break;
+            case 'neon-pulse':
+              duration = 4 + Math.random() * 3; // 4-7 секунд
+              break;
+            default:
+              duration = 3 + Math.random() * 2; // 3-5 секунд по умолчанию
+          }
+
+          const delay = Math.random() * 5;
+
+          return (
+            <circle
+              key={`star-${i}`}
+              cx={cx}
+              cy={cy}
+              r={r}
+              fill={color as string}
+              style={{
+                animation: `${animation} ${duration}s ease-in-out infinite`,
+                animationDelay: `${delay}s`,
+                opacity: animation === 'subtle-flicker' ? 0.8 : 0.9,
+                transformOrigin: `${cx}px ${cy}px`,
+              } as React.CSSProperties}
+            />
+          )
+        })}
       </g>
 
       {/* Солнце */}
@@ -141,12 +178,13 @@ export const FlatSolarSystem: React.FC = () => {
           r="90"
         />
         {/* Анимация пульсации */}
-        <circle
+         {/* <circle
           className="fill-light-accent-400 dark:fill-dark-accent-400 opacity-30 animate-ping transition-colors duration-300"
           r="110"
-        />
+        /> */}
       </g>
 
+      {/* Планеты */}
       {planetsData.map(planet => {
         if (planet.id === "neptune") {
           return <a href={planet.link} target="_blank">
@@ -167,24 +205,6 @@ export const FlatSolarSystem: React.FC = () => {
           </g>
         }
       })}
-
-      {/* Дополнительные детали */}
-      <g transform="translate(900,350)">
-        <g>
-          {[
-            [380, 220, 3], [-320, 220, 3.5], [-80, 240, 2.6],
-            [70, 240, 2.2], [-240, 120, 2.6]
-          ].map(([cx, cy, r], i) => (
-            <circle
-              key={`asteroid-${i}`}
-              className="fill-light-copy dark:fill-dark-copy opacity-70"
-              cx={cx}
-              cy={cy}
-              r={r}
-            />
-          ))}
-        </g>
-      </g>
     </svg>
 
 

@@ -52,19 +52,67 @@ export const planetsData: PlanetData[] = [
         radius: 22,
         orbitRadius: 160,
         description: 'Наш дом во Вселенной',
-        element: <g transform="translate(900,350)">
-            <g transform="translate(-150, -20)">
+        element: (
+            <g transform="translate(900,350)">
+                <g transform="translate(-150, -20)">
+                    <defs>
+                        <path
+                            id="earth-text-path"
+                            d="
+            M 0,0
+            m -26,0
+            a 26,26 0 1,1 52,0
+            a 26,26 0 1,1 -52,0
+          "
+                        />
+                    </defs>
 
-                <circle r="22" fill="url(#earth-grad)" />
-                <path
-                    d="M -8 -6 q 5 -8 14 -5 q -2 6 -9 10 q -7 3 -5 1 z"
-                    className="fill-[#2f9c3a] dark:fill-[#48bb78] transition-colors duration-300"
-                    transform="scale(0.9)"
-                />
-                <text x="-40" y="0" className="fill-[#2f9c3a] dark:fill-[#bf5100] transition-colors duration-300">Portfolio </text>
+                    {/* Планета — СТАТИЧНА */}
+                    <circle r="22" fill="url(#earth-grad)" />
 
+                    {/* 👇 ВАЖНО: отдельный g ТОЛЬКО для текста */}
+                    <g pointerEvents="none">
+                        <animateTransform
+                            attributeName="transform"
+                            type="rotate"
+                            from="0 0 0"
+                            to="360 0 0"
+                            dur="12s"
+                            repeatCount="indefinite"
+                        />
+
+                        <text
+                            fontSize="16"
+                            fontWeight="600"
+                            className="fill-[#2f9c3a] dark:fill-[#bf5100]"
+                        >
+                            <textPath
+                                href="#earth-text-path"
+                                startOffset="50%"
+                                textAnchor="middle"
+                            >
+                                Portfolio
+                            </textPath>
+                        </text>
+                    </g>
+                </g>
             </g>
-        </g>,
+        ),
+
+        // element: <g transform="translate(900,350)">
+        //     <g transform="translate(-150, -20)">
+
+        //         <circle r="22" fill="url(#earth-grad)" />
+        //         <path
+        //             d="M -8 -6 q 5 -8 14 -5 q -2 6 -9 10 q -7 3 -5 1 z"
+        //             className="fill-[#2f9c3a] dark:fill-[#48bb78] transition-colors duration-300"
+        //             transform="scale(0.9)"
+        //         />
+        //         <text x="-40" y="0" className="fill-[#2f9c3a] dark:fill-[#bf5100] transition-colors duration-300">Portfolio </text>
+
+
+        //     </g>
+        // </g>,
         link: portfolioRoutes.about
     },
     {
@@ -92,6 +140,18 @@ export const planetsData: PlanetData[] = [
         description: 'Газовый гигант',
         element: <g transform="translate(900,350)">
             <g transform="translate(340, -120)">
+                <defs>
+                    <path
+                        id="jupiter-text-path"
+                        d="
+      M 0,0
+      m -56,0
+      a 56,56 0 1,1 112,0
+      a 56,56 0 1,1 -112,0
+    "
+                    />
+                </defs>
+
                 <circle
                     r="48"
                     className="fill-[#f0a95f] dark:fill-[#ffca51] transition-colors duration-300"
@@ -105,8 +165,27 @@ export const planetsData: PlanetData[] = [
                         className="fill-[#e08b3e] dark:fill-[#ffb347] transition-colors duration-300"
                     />
                 </g>
-                <text x="-68" y="0" className="fill-[#2f9c3a] dark:fill-[#bf5100] transition-colors duration-300">Code Examples </text>
 
+                <g pointerEvents="none">
+                    <animateTransform
+                        attributeName="transform"
+                        type="rotate"
+                        from="0 0 0"
+                        to="360 0 0"
+                        dur="12s"
+                        repeatCount="indefinite"
+                    />
+
+                    <text fontSize="22" fontWeight="600" className="fill-[#2f9c3a] dark:fill-[#bf5100]">
+                        <textPath
+                            href="#jupiter-text-path"
+                            startOffset="50%"
+                            textAnchor="middle"
+                        >
+                            Code Examples
+                        </textPath>
+                    </text>
+                </g>
             </g>
         </g>,
         link: codeExamplesRoutes.main
@@ -120,14 +199,43 @@ export const planetsData: PlanetData[] = [
         description: 'Властелин колец',
         element: <g transform="translate(900,350)">
             <g transform="translate(-440, -60)">
-
+                <defs>
+                    <path
+                        id="saturn-text-path"
+                        d="
+      M 0,0
+      m -50,0
+      a 50,50 0 1,1 100,0
+      a 50,50 0 1,1 -100,0
+    "
+                    />
+                </defs>
                 <circle
                     r="40"
-                    // className="fill-[#c8d3a8] dark:fill-[#e6b67d] transition-colors duration-300"
                     fill='url(#saturn-grad)'
                 />
 
-                <text x="-80" y="0" font-size="20px" font-weight="bold" className="fill-[#2f9c3a] dark:fill-[#701a75] transition-colors duration-300">Design System </text>
+                {/* <text x="-80" y="0" font-size="20px" font-weight="bold" className="fill-[#2f9c3a] dark:fill-[#701a75] transition-colors duration-300">Design System </text> */}
+                <g pointerEvents="none">
+                    <animateTransform
+                        attributeName="transform"
+                        type="rotate"
+                        from="0 0 0"
+                        to="360 0 0"
+                        dur="12s"
+                        repeatCount="indefinite"
+                    />
+
+                    <text fontSize="22" fontWeight="600" className="fill-[#2f9c3a] dark:fill-[#bf5100]">
+                        <textPath
+                            href="#saturn-text-path"
+                            startOffset="50%"
+                            textAnchor="middle"
+                        >
+                            Design System
+                        </textPath>
+                    </text>
+                </g>
             </g>
         </g>,
         link: "/customStoryBook"
@@ -141,12 +249,42 @@ export const planetsData: PlanetData[] = [
         description: 'Ледяной гигант',
         element: <g transform="translate(900,350)">
             <g transform="translate(500, 30)">
+                <defs>
+                    <path
+                        id="neptune-text-path"
+                        d="
+      M 0,0
+      m -38,0
+      a 38,38 0 1,1 76,0
+      a 38,38 0 1,1 -76,0
+    "
+                    />
+                </defs>
                 <circle
                     r="30"
                     fill='url(#neptune-grad)'
                 />
-                <text x="-30" y="0" className="fill-[#2f9c3a] dark:fill-[#bf5100] transition-colors duration-300">GitHub </text>
+                {/* <text x="-30" y="0" className="fill-[#2f9c3a] dark:fill-[#bf5100] transition-colors duration-300">GitHub </text> */}
+                <g pointerEvents="none">
+                    <animateTransform
+                        attributeName="transform"
+                        type="rotate"
+                        from="0 0 0"
+                        to="360 0 0"
+                        dur="12s"
+                        repeatCount="indefinite"
+                    />
 
+                    <text fontSize="22" fontWeight="600" className="fill-[#2f9c3a] dark:fill-[#bf5100]">
+                        <textPath
+                            href="#neptune-text-path"
+                            startOffset="50%"
+                            textAnchor="middle"
+                        >
+                            GitHub
+                        </textPath>
+                    </text>
+                </g>
             </g>
 
         </g>,

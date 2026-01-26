@@ -65,7 +65,7 @@ module.exports = {
           //   muted: '#F5F5F5',
           // },
           copy: {
-            DEFAULT: '#111111',
+            DEFAULT: '#f5f3f3ff',
             muted: '#666666',
             subtle: '#999999',
           }

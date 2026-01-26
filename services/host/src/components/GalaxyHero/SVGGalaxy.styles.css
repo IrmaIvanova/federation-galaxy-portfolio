@@ -152,7 +152,7 @@
 .planet-group {
   transform-box: fill-box;
   transform-origin: center;
-  animation: spin var(--spin-duration, 6s) linear infinite;
+  /* animation: spin var(--spin-duration, 6s) linear infinite; */
   animation-play-state: var(--animation-play-state, running);
   transition: transform 0.3s ease;
 }
