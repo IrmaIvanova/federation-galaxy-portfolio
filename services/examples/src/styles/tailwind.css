@@ -84,13 +84,15 @@
   }
 
   /* Карточки */
-  .card {
-    @apply bg-light-background-card rounded-lg shadow-soft border border-light-gray-200;
+    .card {
+    @apply bg-light-background-card rounded-lg shadow-soft;
   }
+ 
 
   .dark .card {
-    @apply bg-dark-background-card shadow-soft-dark border border-dark-gray-800;
+    @apply bg-dark-background-card shadow-soft-dark;
   }
+ 
 
   /* Инпуты */
   .input {

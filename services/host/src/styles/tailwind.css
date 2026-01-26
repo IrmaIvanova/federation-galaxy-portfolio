@@ -135,13 +135,19 @@
   }
 
   /* Карточки */
-  .card {
-    @apply bg-light-background-card rounded-lg shadow-soft border border-light-gray-200;
+   .card {
+    @apply bg-light-background-card rounded-lg shadow-soft;
   }
+  /* .card {
+    @apply bg-light-background-card rounded-lg shadow-soft border border-light-gray-200;
+  } */
 
   .dark .card {
-    @apply bg-dark-background-card shadow-soft-dark border border-dark-gray-800;
+    @apply bg-dark-background-card shadow-soft-dark;
   }
+  /* .dark .card {
+    @apply bg-dark-background-card shadow-soft-dark border border-dark-gray-800;
+  } */
 
   /* Инпуты */
   .input {

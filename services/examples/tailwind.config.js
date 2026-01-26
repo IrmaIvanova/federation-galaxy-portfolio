@@ -41,10 +41,15 @@ module.exports = {
             900: '#262626',
           },
           background: {
-            DEFAULT: '#FFFFFF',
-            card: '#F8F8F8',
-            muted: '#F5F5F5',
+            DEFAULT: '#666b94ff',
+            card: '#666b94ff',
+            muted: '#8b93cdff',
           },
+          // background: {
+          //   DEFAULT: '#FFFFFF',
+          //   card: '#F8F8F8',
+          //   muted: '#F5F5F5',
+          // },
           copy: {
             DEFAULT: '#111111',
             muted: '#666666',
@@ -80,9 +85,9 @@ module.exports = {
             900: '#701a75',
           },
           background: {
-            DEFAULT: '#111111',
-            card: '#1a1a1a',
-            muted: '#222222',
+            DEFAULT: '#221a2bff',
+            card: '#666b9476',
+            muted: '#31283ba5',
           },
           copy: {
             DEFAULT: '#FFFFFF',

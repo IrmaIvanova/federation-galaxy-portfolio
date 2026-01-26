@@ -9,9 +9,7 @@ import { useLocation, useParams } from "react-router-dom";
 
 
 export const App: React.FC = () => {
-    const loc = useParams();
-
-    console.log("loc", loc)
+  
     return (
         <Container >
             <ThemeToggle />
@@ -19,7 +17,6 @@ export const App: React.FC = () => {
             <Section className='flex'>
                 <Section>
                     <Typography variant="h3" children={"Примеры кода"} className='my-8' />
-
 
                     <CustomLink to={codeExamplesRoutes.main} variant='primary' nav children='Пример списка пользователей' />
 
