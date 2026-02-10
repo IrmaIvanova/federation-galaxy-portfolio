@@ -41,7 +41,10 @@ module.exports = {
             900: '#262626',
           },
           background: {
-            DEFAULT: '#666b94ff',
+            // DEFAULT: '#666b94ff',
+                        DEFAULT: '#171a36ff',
+
+            // DEFAULT: '#262949',
             card: '#666b9476',
             muted: '#8b93cdff',
           },

@@ -170,11 +170,11 @@ export const FlatSolarSystem: React.FC = () => {
         style={{ cursor: 'pointer' }}
       >
         <circle
-          className="fill-light-accent-400 dark:fill-dark-accent-400 transition-colors duration-300"
+          className="fill-dark-accent-200 dark:fill-dark-accent-400 transition-colors duration-300"
           r="100"
         />
         <circle
-          className="fill-light-accent-300 dark:fill-dark-accent-300 opacity-50 transition-colors duration-300"
+          className="fill-dark-accent-300 dark:fill-dark-accent-300 opacity-50 transition-colors duration-300"
           r="90"
         />
         {/* Анимация пульсации */}

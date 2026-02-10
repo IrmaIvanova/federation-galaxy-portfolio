@@ -6,6 +6,80 @@
   --text-color: #e0e0e0;
 }
 
+/*мерцание звезд */
+
+@keyframes neon-pulse {
+  0%, 100% {
+    filter: 
+      drop-shadow(0 0 1px #FFFFFF)
+      drop-shadow(0 0 4px #FFFFFF)
+      drop-shadow(0 0 8px #FFFFFF);
+    opacity: 0.7;
+    transform: scale(0.8);
+  }
+  50% {
+    filter: 
+      drop-shadow(0 0 3px #FFFFFF)
+      drop-shadow(0 0 8px #FFFFFF)
+      drop-shadow(0 0 15px #FFFFFF);
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+/* Также обновим neon-flicker для консистентности */
+ @keyframes neon-flicker {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    filter: 
+      drop-shadow(0 0 6px #FFFFFF)
+      drop-shadow(0 0 10px #FFFFFF);
+    opacity: 0.9;
+    transform: scale(1);
+  }
+  20%, 24%, 55% {
+    filter: 
+      drop-shadow(0 0 0px #FFFFFF)
+      drop-shadow(0 0 1px #FFFFFF);
+    opacity: 0.4;
+    transform: scale(0.95);
+  }
+}
+
+@keyframes flicker {
+  0%, 100% {
+    opacity: 0.7;
+    filter: drop-shadow(0 0 1px #FFFFFF);
+  }
+  50% {
+    opacity: 1;
+    filter: 
+      drop-shadow(0 0 2px #FFFFFF)
+      drop-shadow(0 0 4px #FFFFFF);
+  }
+}
+
+@keyframes subtle-flicker {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  20%, 80% {
+    opacity: 0.8;
+  }
+  40%, 60% {
+    opacity: 1;
+  }
+}
+
+@keyframes quick-flicker {
+  0%,  20%, 30%, 40%,  70%,  90%, 100% {
+    opacity: 0.6;
+  }
+  5%, 15%,  35%, 45%,  75%, 85%, 95% {
+    opacity: 0.9;
+  }
+}
+
+/* остальные стили */
 .solar-system-container {
   max-width: 1400px;
   margin: 0 auto;

@@ -84,7 +84,7 @@ export const planetsData: PlanetData[] = [
                         <text
                             fontSize="16"
                             fontWeight="600"
-                            className="fill-[#2f9c3a] dark:fill-[#bf5100]"
+                            className="fill-light-accent dark:fill-dark-accent"
                         >
                             <textPath
                                 href="#earth-text-path"
@@ -98,21 +98,6 @@ export const planetsData: PlanetData[] = [
                 </g>
             </g>
         ),
-
-        // element: <g transform="translate(900,350)">
-        //     <g transform="translate(-150, -20)">
-
-        //         <circle r="22" fill="url(#earth-grad)" />
-        //         <path
-        //             d="M -8 -6 q 5 -8 14 -5 q -2 6 -9 10 q -7 3 -5 1 z"
-        //             className="fill-[#2f9c3a] dark:fill-[#48bb78] transition-colors duration-300"
-        //             transform="scale(0.9)"
-        //         />
-        //         <text x="-40" y="0" className="fill-[#2f9c3a] dark:fill-[#bf5100] transition-colors duration-300">Portfolio </text>
-
-
-        //     </g>
-        // </g>,
         link: portfolioRoutes.about
     },
     {
@@ -154,7 +139,8 @@ export const planetsData: PlanetData[] = [
 
                 <circle
                     r="48"
-                    className="fill-[#f0a95f] dark:fill-[#ffca51] transition-colors duration-300"
+
+                    className="fill-[#f0a95f] dark:fill-[#ffca51] rotate transition-colors duration-300"
                 />
                 <g className="opacity-95" transform="scale(1,0.35)">
                     <ellipse
@@ -176,7 +162,7 @@ export const planetsData: PlanetData[] = [
                         repeatCount="indefinite"
                     />
 
-                    <text fontSize="22" fontWeight="600" className="fill-[#2f9c3a] dark:fill-[#bf5100]">
+                    <text fontSize="22" fontWeight="600" className="fill-light-accent dark:fill-dark-accent">
                         <textPath
                             href="#jupiter-text-path"
                             startOffset="50%"
@@ -226,7 +212,7 @@ export const planetsData: PlanetData[] = [
                         repeatCount="indefinite"
                     />
 
-                    <text fontSize="22" fontWeight="600" className="fill-[#2f9c3a] dark:fill-[#bf5100]">
+                    <text fontSize="22" fontWeight="600" className="fill-light-accent dark:fill-dark-accent">
                         <textPath
                             href="#saturn-text-path"
                             startOffset="50%"
@@ -275,7 +261,7 @@ export const planetsData: PlanetData[] = [
                         repeatCount="indefinite"
                     />
 
-                    <text fontSize="22" fontWeight="600" className="fill-[#2f9c3a] dark:fill-[#bf5100]">
+                    <text fontSize="22" fontWeight="600" className="fill-light-accent dark:fill-dark-accent">
                         <textPath
                             href="#neptune-text-path"
                             startOffset="50%"
