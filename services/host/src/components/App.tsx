@@ -27,7 +27,7 @@ export const App: React.FC = () => {
         <FlatSolarSystem />
       </Section>
 
-      <Section as="div" background="muted"  >
+      <Section as="div" background="muted" padding="none" >
         <Outlet />
       </Section>
 

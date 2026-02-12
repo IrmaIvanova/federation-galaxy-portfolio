@@ -119,7 +119,7 @@ export const NavMenu: React.FC<NavMenuProps> = ({
     return (
 
         <nav className={cn("relative", className)}>
-            <Container size="lg" padding="sm">
+            <Container >
                 {DesktopMenu}
                 {MobileMenu}
             </Container>
