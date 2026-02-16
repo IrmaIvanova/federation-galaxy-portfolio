@@ -58,7 +58,7 @@ export const NavMenu: React.FC<NavMenuProps> = ({
                         to={link}
                         nav={!external && currentPath === link}
                         variant="primary"
-                        size="md"
+                        size="lg"
                         external={external}
                     >
                         {name}

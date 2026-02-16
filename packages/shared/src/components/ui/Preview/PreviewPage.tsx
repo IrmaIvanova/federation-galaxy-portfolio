@@ -7,19 +7,19 @@ import { useTheme } from "../../../providers/ThemeProvider";
 import { ThemeToggle } from "../ThemeToogle/ThemeToogle";
 
 import { TabsPreview } from '../Tabs/TabsPreview'
+import { DropdownPreview } from '../DropDown/DropdownPrewiev'
 import { Typography, TypographyPreview } from "../Typography";
 import { CustomLinkPreview } from "../CustomLink/PreviewCustomLink";
 import { SectionPreview } from "../../Layout/Section/SectionPreview";
 import { GridPreview } from "../../Layout/Grid/GridPreview";
 import { ColorSystemDemo } from "./index";
 import { CustomLink } from "../CustomLink";
+
 import { useLocation, useParams } from "react-router-dom";
 
 
 export const PreviewPage: React.FC = () => {
     const { theme } = useTheme();
-
-
 
     return (
         <>
@@ -50,18 +50,19 @@ export const PreviewPage: React.FC = () => {
             </Section>
 
             {/* <div id="contents" className="mb-12 rounded-lg flex flex-col"> */}
-            <Container padding="none" className="mb-12 flex flex-col">
-                <Typography variant="h2" children="Оглавление" />
+            <Container padding="none"  className="mb-12 flex flex-col">
+                <Typography variant="h2" id="contents" children="Оглавление" />
                 <CustomLink to='#TabsSection' children="Tabs Section" />
                 <CustomLink to='#TypographySection' children="Typography Section" />
                 <CustomLink to='#CustomLinkSection' children="CustomLink Section" />
                 <CustomLink to='#ButtonsSection' children="Buttons Section" />
                 <CustomLink to='#CardsSection' children="CardsSection" />
+                <CustomLink to='#DropdownSection' children="DropdownSection" />
                 <CustomLink to='#SectionSystem' children="Section System" />
                 <CustomLink to='#GridSystem' children="Grid System" />
                 <CustomLink to='#ColorSystem' children="Color System" />
             </Container>
-            {/* </div> */}
+
             <CustomLink to='#contents' children="К оглавлению" className="fixed bottom-3 right-4 z-10 w-25 h-10" />
 
             {/* Tabs Section */}
@@ -91,9 +92,16 @@ export const PreviewPage: React.FC = () => {
                 <CardPreview />
             </div>
 
+            {/* Dropdown Section */}
+            <div id="DropdownSection" >
+                <DropdownPreview />
+            </div>
+
             {/* Layout Components */}
             <Section className="mb-12">
-                <Typography variant="h2">Layout Components</Typography>
+                <Container>
+                    <Typography variant="h2">Layout Components</Typography>
+                </Container>
             </Section>
 
             {/* Section System */}

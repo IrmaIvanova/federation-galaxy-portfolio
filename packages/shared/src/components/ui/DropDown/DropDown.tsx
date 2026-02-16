@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { cn } from '../../../utils/cn';
+import { Button } from '../Button';
 
 export interface IDropdownItem {
   label: string;
@@ -16,6 +17,8 @@ export interface IDropdownProps {
   align?: 'left' | 'right';
   /** Размер иконки */
   size?: 'sm' | 'md' | 'lg';
+  /** вариант иконки */
+  variant?: 'options' | 'unstyled';
   /** Кастомная иконка */
   icon?: React.ReactNode;
   /** Дополнительные классы */
@@ -28,6 +31,7 @@ export interface IDropdownProps {
 
 export const Dropdown: React.FC<IDropdownProps> = ({
   items,
+  variant = "unstyled",
   align = 'right',
   size = 'md',
   icon,
@@ -40,11 +44,11 @@ export const Dropdown: React.FC<IDropdownProps> = ({
 
   // Иконка по умолчанию (три точки)
   const defaultIcon = (
-    <svg 
-      width="24" 
-      height="24" 
-      viewBox="0 0 24 24" 
-      fill="none" 
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className="text-current"
     >
@@ -56,7 +60,7 @@ export const Dropdown: React.FC<IDropdownProps> = ({
 
   // Размеры иконки
   const sizeClasses = {
-    sm: 'w-6 h-6',
+    sm: 'w-8 h-6',
     md: 'w-8 h-8',
     lg: 'w-10 h-10',
   };
@@ -83,8 +87,10 @@ export const Dropdown: React.FC<IDropdownProps> = ({
   return (
     <div ref={dropdownRef} className={cn('relative inline-block', className)}>
       {/* Кнопка с иконкой */}
-      <button
+      <Button
         onClick={toggleDropdown}
+        size="optBtn"
+        variant={variant}
         className={cn(
           'flex items-center justify-center rounded-lg',
           'transition-all duration-200',
@@ -97,7 +103,8 @@ export const Dropdown: React.FC<IDropdownProps> = ({
         aria-haspopup="true"
       >
         {icon || defaultIcon}
-      </button>
+      </Button>
+
 
       {/* Выпадающее меню */}
       {isOpen && (
@@ -130,8 +137,8 @@ export const Dropdown: React.FC<IDropdownProps> = ({
                 item.disabled && 'opacity-50 cursor-not-allowed',
                 !item.disabled && [
                   'hover:bg-light-background-muted dark:hover:bg-dark-background-muted',
-                  item.variant === 'danger' 
-                    ? 'text-red-600 dark:text-red-400' 
+                  item.variant === 'danger'
+                    ? 'text-red-600 dark:text-red-400'
                     : 'text-light-copy dark:text-dark-copy'
                 ]
               )}

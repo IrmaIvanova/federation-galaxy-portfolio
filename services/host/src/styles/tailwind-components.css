@@ -66,9 +66,10 @@
     @apply text-light-copy hover:text-light-accent decoration-light-gray-300 hover:decoration-light-accent;
   }
   
-  .link-primary {
-    @apply text-light-accent hover:text-light-accent-600 decoration-light-accent/50 hover:decoration-light-accent;
+ .link-primary {
+    @apply text-light-accent decoration-light-accent hover:text-light-accent-400  hover:decoration-light-accent-400;
   }
+
   
   .link-secondary {
     @apply text-light-gray-600 hover:text-light-gray-800 decoration-light-gray-400 hover:decoration-light-gray-600;

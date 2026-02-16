@@ -3,7 +3,7 @@ import { cn } from '../../../utils/cn';
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'outline' | 'unstyled' | 'options';
-  size?: 'sm' | 'md' | 'lg';
+  size?: 'optBtn' | 'sm' | 'md' | 'lg';
   children: React.ReactNode;
 }
 
@@ -23,9 +23,10 @@ export const Button: React.FC<ButtonProps> = ({
     outline: 'btn-outline',
     unstyled: 'btn-unstyled',
     options: 'btn-opt'
-   
   };
+
   const sizeClasses = {
+    optBtn:'px-0 text-xs',
     sm: 'px-3 py-1.5 text-xs',
     md: 'px-4 py-2 text-sm',
     lg: 'px-6 py-3 text-base',

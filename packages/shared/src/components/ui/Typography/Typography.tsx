@@ -3,6 +3,7 @@ import { cn } from '../../../utils/cn';
 
 export interface TypographyProps {
     children: React.ReactNode;
+    id?: string;
     variant?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'small';
     className?: string;
 
@@ -12,6 +13,7 @@ export interface TypographyProps {
 export const Typography: React.FC<TypographyProps> = ({
     children,
     className,
+    id,
     variant,
     variant: Component = 'p',
 }) => {
@@ -32,6 +34,7 @@ export const Typography: React.FC<TypographyProps> = ({
 
     return (
         <Component
+            id={id}
             className={cn(
                 variantClasses[variant],
                 className
