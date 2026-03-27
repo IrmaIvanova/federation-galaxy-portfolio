@@ -109,7 +109,7 @@
   }
 
   .btn-outline {
-    @apply btn border border-light-gray-300 bg-light-background text-light-copy hover:bg-light-background-muted btn-no-focus;
+    @apply btn border border-light-gray-300 bg-light-background-muted text-light-copy hover:bg-light-background-muted btn-no-focus;
   }
 
   .btn-opt {

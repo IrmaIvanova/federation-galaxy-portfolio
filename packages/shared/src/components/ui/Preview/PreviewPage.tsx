@@ -14,9 +14,8 @@ import { SectionPreview } from "../../Layout/Section/SectionPreview";
 import { GridPreview } from "../../Layout/Grid/GridPreview";
 import { ColorSystemDemo } from "./index";
 import { CustomLink } from "../CustomLink";
-
+import {Avatar} from "../Avatar"
 import { useLocation, useParams } from "react-router-dom";
-
 
 export const PreviewPage: React.FC = () => {
     const { theme } = useTheme();
@@ -24,6 +23,14 @@ export const PreviewPage: React.FC = () => {
     return (
         <>
 
+
+            {/* Header */}
+            <Section background="muted" className="rounded-lg mb-8">
+                <div className="text-center">
+                   <Avatar rounded={"2xl"} size="sm" src="https://24smi.org/public/media/290x360/celebrity/2025/12/24/hfhdxrqxlgfq-anton-shastun.jpg"/>
+                   <Avatar  width={60} height={120} size="none" src="https://i.pinimg.com/736x/cb/64/fa/cb64fa27ef6793bdb48bed702b242a9f.jpg"/>
+                </div>
+            </Section>
 
             {/* Header */}
             <Section background="muted" className="rounded-lg mb-8">

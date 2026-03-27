@@ -80,7 +80,7 @@
   }
 
   .dark .btn-outline {
-    @apply border border-dark-gray-700 bg-dark-background text-dark-copy hover:bg-dark-background-muted focus:ring-dark-accent;
+    @apply border border-dark-gray-700 bg-light-background-muted text-dark-copy hover:bg-dark-background-muted focus:ring-dark-accent;
   }
 
   /* Карточки */
