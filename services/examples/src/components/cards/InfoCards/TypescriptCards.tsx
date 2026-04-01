@@ -199,6 +199,37 @@ export function TypeScriptCard({ }) {
     )
 }
 
+
+
+
+// type IRoles = "admin" | 3 | "maneger"
+
+
+// type IRules = "canEdit" | "canView" | "canReport"
+
+// type IRolesMap = {
+//     [T in IRoles]: {
+//         [K in IRules]+?: boolean
+//     };
+// }
+
+// type IRegistrationForm = {
+//     email: string
+//     password: string
+//     confirmPassword: string
+// }
+
+// type IValidationErrors<Type> = {
+//     [T in keyof Type]?: string
+// }
+
+// const validationErrors: IValidationErrors<IRegistrationForm> = {
+//     email: "Email is invalid",
+//     password: "Password is invalid",
+
+// }
+
+
 // type vs interface
 
 // interface

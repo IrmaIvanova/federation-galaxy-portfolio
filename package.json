@@ -5,10 +5,10 @@
     "packages/*",
     "services/*"
   ],
-    "scripts": {
+  "scripts": {
     "start": "npm-run-all --parallel start:*",
     "start:host": "cd services/host && npm start",
-    "start:portfolio": "cd services/portfolio && npm start", 
+    "start:portfolio": "cd services/portfolio && npm start",
     "start:examples": "cd services/examples && npm start",
     "dev": "concurrently \"npm run start:host\" \"npm run start:portfolio\" \"npm run start:examples\"",
     "install:all": "npm install && cd services/host && npm install && cd ../portfolio && npm install && cd ../examples && npm install"
@@ -16,5 +16,8 @@
   "devDependencies": {
     "concurrently": "^9.2.1",
     "npm-run-all": "^4.1.5"
+  },
+  "dependencies": {
+    "react-hook-form": "^7.72.0"
   }
 }
