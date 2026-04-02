@@ -2,100 +2,80 @@ import React, { ChangeEvent, useCallback, useState } from 'react';
 import classes from './App.module.scss'
 import { Link, Outlet } from 'react-router-dom';
 import { codeExamplesRoutes } from '@packages/shared/src/routes/code-examples'
-import { Section, Grid, Card, Button, Typography, Input, Container } from '@packages/shared/src'
+import { Section, Grid, Card, Button, Typography, Input, Container, ListHeader, List, useListData } from '@packages/shared/src'
 import { useFetch } from '@/hooks/useFetch';
 import { useSearch } from '@/hooks/useSearch';
 import { Avatar } from '@packages/shared/src/components/ui/Avatar';
+import { IUser } from './types';
+import { UserCard } from './UserCard';
+const USERS_URL = 'https://dummyjson.com/users';
 
-const UserList: React.FC = () => {
-    const usersUrl = "https://dummyjson.com/users";
+const mapUsers = (response: any): IUser[] => {
+    return response.users.map((user: any) => ({
+        id: user.id,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        maidenName: user.maidenName,
+        age: user.age,
+        gender: user.gender,
+        email: user.email,
+        phone: user.phone,
+        birthDate: user.birthDate,
+        image: user.image,
+        address: {
+            address: user.address.address,
+            city: user.address.city,
+            state: user.address.state,
+            country: user.address.country,
+        },
+        company: {
+            name: user.company.name,
+            title: user.company.title,
+            department: user.company.department,
+        },
+        role: user.role,
+    }));
+};
 
+export const UserList: React.FC = () => {
 
+      const searchUrlBuilder = useCallback(
+    (q: string) => `${USERS_URL}/search?q=${encodeURIComponent(q)}`,
+    []
+  );
 
-    // стабилизируем  Inline-функции через useCallback, чтобы их identity оставалась неизменной между рендерами.
-    const getUserSearchUrl = useCallback(
-        (q: string) => `${usersUrl}/search?q=${q}`,
-        [usersUrl]
-    )
+  const { data, loading, error, query, handleSearch } = useListData<IUser>({
+    fetchUrl: USERS_URL,
+    searchUrlBuilder,
+    mapData: mapUsers,
+    debounceMs: 500,
+  });
 
-    const mapUsers = useCallback(
-        (res: any) => res.users,
-        []
-    )
+   const renderUserCard = useCallback(
+    (user: IUser) => <UserCard user={user} variant="default" />,
+    []
+  );
 
-    const { data, error, loading } = useFetch(usersUrl, mapUsers)
-
-
-    const { query, error: searchError, loading: searchLoading, setQuery, data: searchData } = useSearch(
-        getUserSearchUrl,
-        300,
-        mapUsers
-    )
-
-    const handleSearch = (value: string) => {
-        setQuery(value)
-    }
     return (
 
         <Section>
             <Typography variant='h2' children="Список пользователей" />
 
-            <Section>
-
-                <Input
-                    type="search"
-                    onSearch={handleSearch}
-                    placeholder="Найти"
-                    leftIcon="/src/assets/svg/Search.svg"
-                    debounceMs={500}
-                />
-
-            </Section>
-
-
-            {(loading || searchLoading) && <div> loading ...</div>}
-            {(error || searchError) && <div> error:{error || searchError}</div>}
-
-            {!loading && !query && <ul className='flex gap-6 flex-col'>
-                {
-                    data.map(
-                        (user: any) => <Card key={user.id} className="flex gap-6">
-
-                            <Avatar src={user.image} rounded='sm' />
-                            <div>
-                                <Typography variant='h5'> {user.firstName} {user.lastName} {user.maidenName}</Typography>
-                                <Typography variant='small'> {user.birthDate} </Typography>
-                            </div>
-                            <div>
-
-                            </div>
-                        </Card>
-                    )
-                }
-            </ul>}
-            {!searchLoading && query && <ul className='flex gap-6 flex-col'>
-                {
-                    searchData && searchData.map(
-                        (user: any) => <Card key={user.id} className="flex gap-6">
-
-                            <Avatar src={user.image} rounded='sm' />
-                            <div>
-                                <Typography variant='h5'> {user.firstName} {user.lastName} {user.maidenName}</Typography>
-                                <Typography variant='small'> {user.birthDate} </Typography>
-                            </div>
-                            <div>
-
-                            </div>
-                        </Card>
-                    )
-                }
-            </ul>}
-
-
+            <ListHeader
+                onSearch={handleSearch}
+                debounceMs={500}
+                placeholder="Найти пользователя..."
+            />
+            <List
+                title="Список пользователей"
+                data={data}
+                renderItem={renderUserCard}
+                loading={loading}
+                error={error}
+                query={query}
+                onSearch={handleSearch}
+                searchPlaceholder="Найти пользователя..."
+            />
         </Section>
-
-
     )
 }
-
-export default UserList;

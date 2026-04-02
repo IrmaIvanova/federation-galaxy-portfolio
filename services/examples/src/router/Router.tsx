@@ -8,7 +8,7 @@ import { TypeScriptCard } from "@/components/cards/InfoCards/TypescriptCards";
 import { MuiCard } from "@/components/cards/InfoCards/UIMUICards";
 import { WebGLCard } from "@/components/cards/InfoCards/WebGL";
 import { Cards } from "@/pages/cards/Cards";
-import UserList from "@/pages/usersList/UsersList";
+import { UserList } from "@/pages/usersList/UsersList";
 import { ThemeProvider } from "@packages/shared/src";
 import { Suspense } from "react";
 import { createBrowserRouter } from "react-router-dom";
