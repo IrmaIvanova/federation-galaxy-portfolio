@@ -30,7 +30,7 @@ export const useListData = <T,>({
         data: searchResults,
         error: searchError,
         loading: searchLoading,
-    } = useSearch(searchUrlBuilder, debounceMs, mapData);
+    } = useSearch( query, searchUrlBuilder, debounceMs, mapData);
 
     const handleSearch = useCallback((value: string) => {
         setQuery(value);

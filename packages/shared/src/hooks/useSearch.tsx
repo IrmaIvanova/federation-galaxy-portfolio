@@ -32,13 +32,14 @@ type mapResponse<T> = (respons: any) => T[]
 
 
 export function useSearch<T>(
+    query: string,
     getUrl: GetUrlFn,
     debounceMs = 300,
     mapResponse: mapResponse<T>
 ) {
     const [loading, setLoading] = useState<boolean>(false)
     const [error, setError] = useState<string | null>(null)
-    const [query, setQuery] = useState<string>('')
+    // const [query, setQuery] = useState<string>('')
     const [data, setData] = useState<T[]>([])
 
     // выносим аборт контроллер в юз реф так как это мутабельный объект и он не должен вызывать лишних перерендеров
@@ -144,7 +145,6 @@ export function useSearch<T>(
         loading,
         error,
         query,
-        setQuery,
     }
 
 }
