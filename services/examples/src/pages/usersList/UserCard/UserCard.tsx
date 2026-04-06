@@ -1,7 +1,7 @@
 // src/components/features/users/UserCard.tsx
 import React from 'react';
-import { Card, Typography,Avatar  } from '@packages/shared/src/index';
-import { IUser } from './types';
+import { Card, Typography, Avatar } from '@packages/shared/src/index';
+import { IUser } from '../types';
 
 interface UserCardProps {
   user: IUser;
@@ -20,7 +20,7 @@ export const UserCard: React.FC<UserCardProps> = ({
     return (
       <Card
         className="flex gap-3 p-3 items-center cursor-pointer hover:shadow-lg transition-all"
-        // onClick={() => onClick?.(user)}
+      // onClick={() => onClick?.(user)}
       >
         <Avatar src={user.image} rounded="full" size="sm" />
         <div className="flex-1">
@@ -45,11 +45,20 @@ export const UserCard: React.FC<UserCardProps> = ({
         <Typography variant="h5" className="mb-1">
           {fullName} {user.maidenName && `(${user.maidenName})`}
         </Typography>
-        <Typography variant="small" className="text-gray-500 block">
-          {user.email} • {user.phone}
-        </Typography>
+
         <Typography variant="small" className="text-gray-400">
-           {user.birthDate} • {user.age} лет •  {user.company?.title}
+          {user.birthDate} • {user.age} лет
+        </Typography>
+      </div>
+      <div className='flex-1'>
+        <Typography variant="small" className="text-gray-400">
+          {user.company?.title}
+        </Typography>
+        <Typography variant="small" className="text-gray-500 block">
+          {user.email}
+        </Typography>
+        <Typography variant="small" className="text-gray-500 block">
+          {user.phone}
         </Typography>
       </div>
       <div className="text-right">

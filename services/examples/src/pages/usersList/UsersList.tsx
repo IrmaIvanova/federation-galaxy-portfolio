@@ -1,13 +1,9 @@
 import React, { ChangeEvent, useCallback, useState } from 'react';
-import classes from './App.module.scss'
-import { Link, Outlet } from 'react-router-dom';
-import { codeExamplesRoutes } from '@packages/shared/src/routes/code-examples'
-import { Section, Grid, Card, Button, Typography, Input, Container, ListHeader, List, useListData } from '@packages/shared/src'
-import { useFetch } from '@/hooks/useFetch';
-import { useSearch } from '@/hooks/useSearch';
+import { Section, Typography, ListHeader, List, useListData } from '@packages/shared/src'
 import { Avatar } from '@packages/shared/src/components/ui/Avatar';
 import { IUser } from './types';
-import { UserCard } from './UserCard';
+import { UserCard } from './UserCard/UserCard';
+
 const USERS_URL = 'https://dummyjson.com/users';
 
 const mapUsers = (response: any): IUser[] => {
@@ -39,22 +35,22 @@ const mapUsers = (response: any): IUser[] => {
 
 export const UserList: React.FC = () => {
 
-      const searchUrlBuilder = useCallback(
-    (q: string) => `${USERS_URL}/search?q=${encodeURIComponent(q)}`,
-    []
-  );
+    const searchUrlBuilder = useCallback(
+        (q: string) => `${USERS_URL}/search?q=${encodeURIComponent(q)}`,
+        []
+    );
 
-  const { data, loading, error, query, handleSearch } = useListData<IUser>({
-    fetchUrl: USERS_URL,
-    searchUrlBuilder,
-    mapData: mapUsers,
-    debounceMs: 500,
-  });
+    const { data, loading, error, query, handleSearch } = useListData<IUser>({
+        fetchUrl: USERS_URL,
+        searchUrlBuilder,
+        mapData: mapUsers,
+        debounceMs: 500,
+    });
 
-   const renderUserCard = useCallback(
-    (user: IUser) => <UserCard user={user} variant="default" />,
-    []
-  );
+    const renderUserCard = useCallback(
+        (user: IUser) => <UserCard user={user} variant="default" />,
+        []
+    );
 
     return (
 

@@ -14,7 +14,7 @@ export const ListHeader: React.FC<ListHeaderProps> = ({
   debounceMs = 500,
 }) => {
   return (
-    <Section className="mb-6">
+    <Section  padding="none">
       <Input
         type="search"
         onSearch={onSearch}
