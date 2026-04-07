@@ -6,7 +6,7 @@ export interface INavMenuItem {
 }
 
 
-export interface NavMenuProps {
+export interface INavMenuProps {
     options: INavMenuItem[],
     themeBTN?: boolean,
     className?: string;

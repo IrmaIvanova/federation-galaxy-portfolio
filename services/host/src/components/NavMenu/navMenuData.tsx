@@ -1,6 +1,6 @@
+import { INavMenuItem } from '@packages/shared'
 import { codeExamplesRoutes } from '@packages/shared/src/routes/code-examples'
 import { portfolioRoutes } from '@packages/shared/src/routes/portfolio'
-import { INavMenuItem } from './NavMenu.interface'
 
 export const navMenuData: INavMenuItem[] = [
     {

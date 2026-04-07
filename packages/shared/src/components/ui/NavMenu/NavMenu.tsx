@@ -2,9 +2,9 @@ import { cn, Container, CustomLink, ThemeToggle } from '@packages/shared/src';
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { MenuIcon } from "../../Icons/NavMenuIcon";
-import { NavMenuProps } from "./NavMenu.interface"
+import { INavMenuProps } from "./NavMenu.interface"
 
-export const NavMenu: React.FC<NavMenuProps> = ({
+export const NavMenu: React.FC<INavMenuProps> = ({
     options,
     themeBTN = false,
     className

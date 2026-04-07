@@ -7,7 +7,7 @@ import { TestCard } from "@/components/cards/InfoCards/TestCards";
 import { TypeScriptCard } from "@/components/cards/InfoCards/TypescriptCards";
 import { MuiCard } from "@/components/cards/InfoCards/UIMUICards";
 import { WebGLCard } from "@/components/cards/InfoCards/WebGL";
-import { Cards } from "@/pages/cards/Cards";
+// import { Cards } from "@/pages/examplesNavData/Cards";
 import { UserList } from "@/pages/usersList/UsersList";
 import { ThemeProvider } from "@packages/shared/src";
 import { Suspense } from "react";
@@ -30,13 +30,13 @@ const routes = [
                 </Suspense>,
 
             },
-            {
-                path: "cards",
-                element: <Suspense fallback={"Loading..."}>
-                    <Cards />
-                </Suspense>,
+            // {
+            //     path: "cards",
+            //     element: <Suspense fallback={"Loading..."}>
+            //         <Cards />
+            //     </Suspense>,
 
-            },
+            // },
             {
                 path: "cards/react",
                 element: <Suspense fallback={"Loading..."}>
