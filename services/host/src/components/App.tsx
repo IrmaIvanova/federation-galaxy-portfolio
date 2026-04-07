@@ -1,15 +1,13 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import { portfolioRoutes } from '@packages/shared/src/routes/portfolio'
-import { codeExamplesRoutes } from '@packages/shared/src/routes/code-examples'
 import '../styles/tailwind.css';
 import { useLocation } from 'react-router-dom';
 // import { Button } from '@packages/shared/src/components/Button/Button'
 import { Section } from '@packages/shared/src'
 import { FlatSolarSystem } from './GalaxyHero/SvgGalaxy';
-
+import { NavMenu } from "@packages/shared/src";
 import { navMenuData } from './NavMenu/navMenuData';
-import { NavMenu } from './NavMenu/NavMenu';
+
 
 
 

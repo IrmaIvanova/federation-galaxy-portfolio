@@ -8,6 +8,8 @@ export interface INavMenuItem {
 
 export interface NavMenuProps {
     options: INavMenuItem[],
-    themeBTN?: boolean
+    themeBTN?: boolean,
+    className?: string;
+
 }
 

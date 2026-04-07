@@ -1,37 +1,8 @@
 import { cn, Container, CustomLink, ThemeToggle } from '@packages/shared/src';
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-
-
-export interface INavMenuItem {
-    link: string;
-    name: string;
-    external: boolean;
-}
-
-export interface NavMenuProps {
-    options: INavMenuItem[];
-    themeBTN?: boolean;
-    className?: string;
-}
-
-// Иконка бургер-меню
-const MenuIcon = ({ isOpen }: { isOpen: boolean }) => (
-    <div className="relative w-6 h-6 flex items-center justify-center">
-        <div className={cn(
-            "absolute w-5 h-0.5 bg-current rounded-full transition-all duration-300",
-            isOpen ? "rotate-45" : "-translate-y-1.5"
-        )} />
-        <div className={cn(
-            "absolute w-5 h-0.5 bg-current rounded-full transition-all duration-300",
-            isOpen ? "opacity-0" : "opacity-100"
-        )} />
-        <div className={cn(
-            "absolute w-5 h-0.5 bg-current rounded-full transition-all duration-300",
-            isOpen ? "-rotate-45" : "translate-y-1.5"
-        )} />
-    </div>
-);
+import { MenuIcon } from "../../Icons/NavMenuIcon";
+import { NavMenuProps } from "./NavMenu.interface"
 
 export const NavMenu: React.FC<NavMenuProps> = ({
     options,
