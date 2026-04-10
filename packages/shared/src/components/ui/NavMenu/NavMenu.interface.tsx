@@ -1,14 +1,23 @@
-export interface INavMenuItem {
+export interface IBaseMenuItem {
+    external?: boolean
+}
+
+export interface IDeviderMenuItem extends IBaseMenuItem {
+    devider: true;
+    deviderTitle: string;
+}
+export interface ILinkMenuItem extends IBaseMenuItem {
     link: string;
     name: string;
-    external: boolean;
 
 }
 
+export type TNavMenuItem = IDeviderMenuItem | ILinkMenuItem
 
 export interface INavMenuProps {
-    options: INavMenuItem[],
+    options: TNavMenuItem[],
     themeBTN?: boolean,
+    variant?: "vertical" | "horizontal"
     className?: string;
 
 }
