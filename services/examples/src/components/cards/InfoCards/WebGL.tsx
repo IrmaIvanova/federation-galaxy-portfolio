@@ -4,7 +4,7 @@ export function WebGLCard({ }) {
     return (
         <Section>
             <Typography variant="h2" children={"WebGL vs Canvas 2D"} />
-            <Grid cols={1} md={2} lg={3} gap="md" >
+            <Grid cols={1} md={1} lg={2} gap="md" >
                 <Card>
                     <Typography variant="h3">
                         WebGL vs Canvas 2D

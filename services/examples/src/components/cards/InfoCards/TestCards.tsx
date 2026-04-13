@@ -6,7 +6,7 @@ export function TestCard({ }) {
     return (
         <Section>
             <Typography variant="h2" children={"Тесты"} />
-            <Grid cols={1} md={2} lg={3} gap="md" >
+            <Grid cols={1} md={1} lg={2} gap="md" >
 
                 <Card>
                     <Typography variant="h3">

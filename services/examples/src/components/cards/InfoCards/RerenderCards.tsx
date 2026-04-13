@@ -4,7 +4,7 @@ export function HooksAndRerendersCards({ }) {
     return (
         <Section>
             <Typography variant="h2" children={"Hooks & ререндеры"} />
-            <Grid cols={1} md={2} lg={3} gap="md" >
+            <Grid cols={1} md={1} lg={2} gap="md" >
                 <Card>
                     <Typography variant="h3">
                         Жизненный цикл компонента
