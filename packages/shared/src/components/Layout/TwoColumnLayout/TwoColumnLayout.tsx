@@ -11,7 +11,7 @@ export interface TwoColumnLayoutProps {
   contentClassName?: string;    // ← для кастомных стилей контента
   className?: string;
 }
-
+// TwoColumnLayout.tsx
 export const TwoColumnLayout: React.FC<TwoColumnLayoutProps> = ({
   sidebar,
   content,
@@ -42,14 +42,14 @@ export const TwoColumnLayout: React.FC<TwoColumnLayoutProps> = ({
     )}>
       <div className={cn(
         widthClasses[sidebarWidth],
-        "w-full",
+        "w-full md:sticky md:top-0 md:self-start", 
         sidebarClassName
       )}>
         {sidebar}
       </div>
       
       <div className={cn(
-        "flex-1",
+        "flex-1 min-w-0", 
         contentClassName
       )}>
         {content}
